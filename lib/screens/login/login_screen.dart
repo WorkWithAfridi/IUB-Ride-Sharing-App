@@ -1,4 +1,5 @@
 import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/routes/routes.dart';
 import 'package:bnans_iub/widgets/customTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -100,12 +101,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     icon: Icons.email,
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   getCustomTextFieldWithIcon(
                     textEditingController: passwordTEC,
                     labelText: "Enter password...",
-                    icon: Icons.email,
+                    icon: Icons.password,
+                    isObscure: true,
                   ),
                   Container(
                     height: 40,
@@ -133,21 +135,26 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    height: 50,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                      border: Border.all(color: customBlack.withOpacity(.5)),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Sign in',
-                        style: getMarkerFontStyle.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: customBlack,
-                            fontSize: 20),
+                  InkWell(
+                    onTap: () {
+                      Get.offNamed(Routes.getHomescreenRoute);
+                    },
+                    child: Container(
+                      height: 50,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        border: Border.all(color: customBlack.withOpacity(.5)),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Sign in',
+                          style: getMarkerFontStyle.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: customBlack,
+                              fontSize: 20),
+                        ),
                       ),
                     ),
                   ),
