@@ -1,4 +1,4 @@
-import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:bnans_iub/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

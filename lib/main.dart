@@ -4,7 +4,7 @@ import 'package:bnans_iub/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'constants/appTheme.dart';
+import 'constants/app_theme.dart';
 
 void main() {
   runApp(const Bnans());

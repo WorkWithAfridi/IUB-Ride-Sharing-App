@@ -27,7 +27,7 @@ class Routes {
     GetPage(
       name: getHomescreenRoute,
       page: () => HomeScreen(),
-      transition: Transition.downToUp,
+      transition: Transition.fadeIn,
     ),
   ];
 }

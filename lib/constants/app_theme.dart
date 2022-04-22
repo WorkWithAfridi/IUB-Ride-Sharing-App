@@ -18,7 +18,7 @@ Color customRed = Color(0xffE4021B);
 
 TextStyle getDefaultFontStyle = const TextStyle(
   fontFamily: 'Lato',
-  fontSize: 14,
+  fontSize: 13,
   fontWeight: FontWeight.normal,
 );
 

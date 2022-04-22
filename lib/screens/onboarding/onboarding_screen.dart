@@ -1,4 +1,4 @@
-import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:bnans_iub/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -148,12 +148,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             if (pageIndex < 2) {
                               setState(() {
                                 pageIndex++;
-                                pageController.animateToPage(pageIndex,
-                                    duration: Duration(milliseconds: 400),
-                                    curve: Curves.linear);
+                                pageController.animateToPage(
+                                  pageIndex,
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.linearToEaseOut,
+                                );
                               });
                             } else {
-                              Get.offAllNamed(Routes.getLoginRoute);
+                              Get.offNamed(Routes.getLoginRoute);
                             }
                           },
                           splashColor: Colors.transparent,
@@ -212,6 +214,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               style: getDefaultFontStyle.copyWith(
                   fontSize: 14, color: customBlack.withOpacity(.6)),
               textAlign: TextAlign.center,
+              maxLines: 4,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ));
