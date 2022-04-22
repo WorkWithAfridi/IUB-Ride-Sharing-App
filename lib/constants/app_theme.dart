@@ -4,16 +4,17 @@ class AppTheme {
   bool isDarkMode = false;
   static getLightTheme() {
     return ThemeData.light().copyWith(
-      primaryColor: Color(0xffFFC24E),
-      backgroundColor: Color(0xffF4F2EB),
-      appBarTheme: AppBarTheme(backgroundColor: Color(0xffF4F2EB)),
+      primaryColor: customWhite,
+      backgroundColor: customWhite,
+      appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+      scaffoldBackgroundColor: customWhite
     );
   }
 }
 
 Color primaryColor = Color(0xffFFDB15);
 Color customBlack = Color(0xff242526);
-Color customWhite = Color(0xffF4F2EB);
+Color customWhite = Color(0xffF6F5F8);
 Color customRed = Color(0xffE4021B);
 
 TextStyle getDefaultFontStyle = const TextStyle(

@@ -1,8 +1,9 @@
 import 'package:bnans_iub/constants/app_theme.dart';
+import 'package:bnans_iub/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../functions/custom_snackbar.dart';
+import '../../functions/custom_snackbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -29,12 +30,33 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.person,
-              color: customBlack,
-            ),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Container(
+                height: 35,
+                width: 35,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(35),
+                  color: customBlack,
+                ),
+              ),
+              Container(
+                height: 32,
+                width: 32,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(32),
+                  color: primaryColor,
+                ),
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://images.unsplash.com/photo-1465153690352-10c1b29577f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80'),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            width: 17,
           )
         ],
       ),
@@ -44,12 +66,18 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Stack(
           children: [
             Container(
-                height: Get.height,
-                width: Get.width,
-                child: Image.asset(
-                  'assets/images/maps/map (5).jpg',
-                  fit: BoxFit.cover,
-                )),
+              height: Get.height,
+              width: Get.width,
+              child: Image.asset(
+                'assets/images/maps/map (5).jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              height: Get.height,
+              width: Get.width,
+              color: Colors.black.withOpacity(.5),
+            ),
             Center(
               child: Padding(
                 padding: getGlobalPadding(),
@@ -79,10 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         InkWell(
                           onTap: () {
-                            showCustomSnackbar(
-                              "Hi, Kyoto",
-                              "Welcome aboard on BNANS. \nHave a save journey! :)",
-                            );
+                            Get.toNamed(Routes.getTravellingToIUBScreen);
                           },
                           child: Container(
                             height: 50,
@@ -130,7 +155,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 5,
                         ),
                         InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            showCustomSnackbar(
+                              "Hi, Kyoto",
+                              "Welcome aboard on BNANS. \nHave a save journey! :)",
+                            );
+                          },
                           child: Container(
                             height: 50,
                             width: Get.width,
