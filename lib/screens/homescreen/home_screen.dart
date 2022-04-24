@@ -52,30 +52,39 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         actions: [
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Container(
-                height: 35,
-                width: 35,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(35),
-                  color: customBlack,
+          InkWell(
+            onTap: () {
+              print('go to profile');
+              Get.toNamed(Routes.getProfileRoute);
+            },
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  height: 35,
+                  width: 35,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(35),
+                    color: customBlack,
+                  ),
                 ),
-              ),
-              Container(
-                height: 32,
-                width: 32,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(32),
-                  color: primaryColor,
+                Container(
+                  height: 32,
+                  width: 32,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32),
+                    color: primaryColor,
+                  ),
+                  child: CircleAvatar(
+                    backgroundColor: primaryColor,
+                    backgroundImage: NetworkImage(
+                        'https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
+                  ),
                 ),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                      'https://images.unsplash.com/photo-1465153690352-10c1b29577f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80'),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
           SizedBox(
             width: 17,
@@ -184,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: Get.height * .6,
+                            height: Get.height * .5,
                           ),
                           Container(
                             height: 50,

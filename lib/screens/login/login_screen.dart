@@ -197,20 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 8,
                             ),
                             InkWell(
-                              onTap: () async {
-                                setState(() {
-                                  isLoading = true;
-                                });
-                                await Future.delayed(Duration(seconds: 2));
-                                Get.offNamed(Routes.getHomescreenRoute);
-                                showCustomSnackbar(
-                                  "Hi, Kyoto",
-                                  "Welcome aboard on BNANS. \nHave a save journey! :)",
-                                );
-                                setState(() {
-                                  isLoading = false;
-                                });
-                              },
+                              onTap: () async {},
                               child: Container(
                                 height: 50,
                                 width: Get.width,
@@ -221,15 +208,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Center(
-                                  child: isLoading
-                                      ? GetCustomCircularProgressIndicator()
-                                      : Text(
-                                          'Sign up',
-                                          style: getMarkerFontStyle.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: primaryColor,
-                                              fontSize: 20),
-                                        ),
+                                  child: Text(
+                                    'Sign up',
+                                    style: getMarkerFontStyle.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color: primaryColor,
+                                        fontSize: 20),
+                                  ),
                                 ),
                               ),
                             ),
