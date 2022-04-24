@@ -102,7 +102,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             width: Get.width / 4,
                             child: Text(
                               pageIndex != 0 ? "Back" : "Skip",
-                              style: getDefaultFontStyle,
+                              style: getDefaultFontStyle.copyWith(
+                                  fontWeight: pageIndex == 0
+                                      ? FontWeight.bold
+                                      : FontWeight.normal),
                             ),
                           ),
                         ),
@@ -166,7 +169,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             width: Get.width / 4,
                             child: Text(
                               pageIndex == 2 ? "Get started" : "Next",
-                              style: getDefaultFontStyle,
+                              style: getDefaultFontStyle.copyWith(
+                                  fontWeight: pageIndex == 2
+                                      ? FontWeight.bold
+                                      : FontWeight.normal),
                             ),
                           ),
                         )
@@ -198,7 +204,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       : pageIndex == 2
                           ? "Title 3"
                           : "",
-              style: getBoldFontStyle.copyWith(fontSize: 25),
+              style:
+                  getMarkerFontStyle.copyWith(fontSize: 20, color: customBlack),
             ),
             SizedBox(
               height: 5,

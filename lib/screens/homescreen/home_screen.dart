@@ -1,7 +1,12 @@
 import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:bnans_iub/routes/routes.dart';
+import 'package:bnans_iub/widgets/getLoadingAnimation.dart';
+import 'package:bnans_iub/widgets/getTripCard.dart';
+import 'package:bnans_iub/widgets/google_maps.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../functions/custom_snackbar.dart';
 
@@ -13,6 +18,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  getData() async {
+    Future.delayed(Duration(seconds: 2)).then((_) {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,139 +85,310 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         height: Get.height,
         width: Get.width,
-        child: Stack(
-          children: [
-            Container(
-              height: Get.height,
-              width: Get.width,
-              child: Image.asset(
-                'assets/images/maps/map (5).jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              height: Get.height,
-              width: Get.width,
-              color: Colors.black.withOpacity(.5),
-            ),
-            Center(
-              child: Padding(
-                padding: getGlobalPadding(),
-                child: Card(
-                  elevation: 6,
-                  child: Container(
-                    height: 200,
-                    padding: EdgeInsets.symmetric(horizontal: 25),
-                    decoration: BoxDecoration(
-                      color: customWhite,
-                      border: Border.all(
-                        color: customBlack.withOpacity(.5),
-                        width: 1,
+        child: isLoading
+            ? GetLoadingAnimation()
+            : Stack(
+                children: [
+                  SizedBox(
+                    height: Get.height,
+                    width: Get.width,
+                    child: CustomGoogleMapsWidget(),
+                  ),
+                  Container(
+                    height: Get.height,
+                    width: Get.width,
+                    color: Colors.white.withOpacity(.3),
+                  ),
+                  Positioned(
+                    top: 40,
+                    left: 0,
+                    child: Container(
+                      width: Get.width,
+                      padding: EdgeInsets.only(right: 15),
+                      // color: Colors.red,
+                      height: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Your location',
+                                style: getDefaultFontStyle,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                FontAwesomeIcons.locationCrosshairs,
+                                color: Colors.red,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Onging to IUB',
+                                style: getDefaultFontStyle,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                FontAwesomeIcons.locationDot,
+                                color: Colors.blueAccent,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Outgoing from IUB',
+                                style: getDefaultFontStyle,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                FontAwesomeIcons.locationDot,
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Hi, are you travelling',
-                          style: getDefaultFontStyle,
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed(Routes.getTravellingToIUBScreen);
-                          },
-                          child: Container(
-                            height: 50,
-                            width: Get.width,
-                            decoration: BoxDecoration(
-                              color: primaryColor,
-                              border: Border.all(
-                                  color: customBlack.withOpacity(.5)),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'TO',
-                                style: getMarkerFontStyle.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: customBlack,
-                                    fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 1,
-                              width: 30,
-                              color: customBlack,
-                            ),
-                            Text(
-                              ' OR ',
-                              style: getDefaultFontStyle.copyWith(fontSize: 13),
-                            ),
-                            Container(
-                              height: 1,
-                              width: 30,
-                              color: customBlack,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            showCustomSnackbar(
-                              "Hi, Kyoto",
-                              "Welcome aboard on BNANS. \nHave a save journey! :)",
-                            );
-                          },
-                          child: Container(
-                            height: 50,
-                            width: Get.width,
-                            decoration: BoxDecoration(
-                              color: customBlack,
-                              border: Border.all(
-                                  color: customBlack.withOpacity(.5)),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'FROM',
-                                style: getMarkerFontStyle.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: primaryColor,
-                                    fontSize: 20),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'Independent University, Bangladesh?',
-                          style: getDefaultFontStyle,
-                        ),
-                      ],
                     ),
                   ),
-                ),
+                  Container(
+                    height: Get.height,
+                    width: Get.width,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: Get.height * .6,
+                          ),
+                          Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  customWhite.withOpacity(.0),
+                                  customWhite.withOpacity(.5),
+                                  customWhite.withOpacity(.7),
+                                  customWhite.withOpacity(.9),
+                                  //add more colors for gradient
+                                ],
+                                begin: Alignment
+                                    .topCenter, //begin of the gradient color
+                                end: Alignment
+                                    .bottomCenter, //end of the gradient color
+                                // stops: [0, 0.2, 0.5, 0.8] //stops for individual color
+                                //set the stops number equal to numbers of color
+                              ),
+                            ),
+                          ),
+                          Container(
+                            color: customWhite,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  // height: 100,
+                                  // color: Colors.blue,
+                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Active Trips",
+                                            style: getMarkerFontStyle.copyWith(
+                                              color: customBlack,
+                                              fontSize: 25,
+                                            ),
+                                          ),
+                                          Text(
+                                            '23rd June - 12:01PM',
+                                            style: getDefaultFontStyle.copyWith(
+                                                fontSize: 12),
+                                          )
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: Get.width / 3,
+                                        // height: 90,
+                                        child: LottieBuilder.asset(
+                                            'assets/lottie_animations/carLottieAnimation.json'),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                // Container(
+                                //   height: .5,
+                                //   width: Get.width / 2,
+                                //   color: customBlack.withOpacity(.5),
+                                // ),
+                                // SizedBox(
+                                //   height: 15,
+                                // ),
+                                // SizedBox(
+                                //   height: 5,
+                                // ),
+                                // Container(
+                                //   child: Row(
+                                //     mainAxisAlignment: MainAxisAlignment.center,
+                                //     children: [
+                                //       Container(
+                                //         height: 30,
+                                //         width: 30,
+                                //         decoration: BoxDecoration(
+                                //           border: Border.all(
+                                //               color: customBlack.withOpacity(.5),
+                                //               width: 2),
+                                //           borderRadius: BorderRadius.circular(30),
+                                //         ),
+                                //         child: Icon(
+                                //           Icons.add,
+                                //           color: customBlack.withOpacity(.5),
+                                //         ),
+                                //       ),
+                                //       SizedBox(
+                                //         width: 10,
+                                //       ),
+                                //       Text(
+                                //         'Register a Trip',
+                                //         style: getDefaultFontStyle.copyWith(
+                                //             fontSize: 15,
+                                //             color: customBlack.withOpacity(.5)),
+                                //       )
+                                //     ],
+                                //   ),
+                                // ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 18.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Ongoing trips',
+                                        style: getDefaultFontStyle.copyWith(
+                                            color: customBlack, fontSize: 15),
+                                      ),
+                                      Text(
+                                        'See more',
+                                        style: getDefaultFontStyle.copyWith(
+                                            color: customBlack,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 3,
+                                ),
+                                ListView.builder(
+                                  itemCount: 3,
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) {
+                                    return GetTripCard();
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 25,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 18.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Outgoing trips',
+                                        style: getDefaultFontStyle.copyWith(
+                                            color: customBlack, fontSize: 15),
+                                      ),
+                                      Text(
+                                        'See more',
+                                        style: getDefaultFontStyle.copyWith(
+                                            color: customBlack,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 3,
+                                ),
+                                ListView.builder(
+                                  itemCount: 3,
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  itemBuilder: (context, index) {
+                                    return GetTripCard();
+                                  },
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Copyright - Kyoto 2022',
+                                      style: getDefaultFontStyle.copyWith(
+                                          fontSize: 12,
+                                          color: customBlack.withOpacity(.8)),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
-            ),
-          ],
-        ),
       ),
     );
   }

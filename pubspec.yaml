@@ -40,6 +40,8 @@ dependencies:
   flutter_polyline_points: any
   google_maps_flutter: any
   smooth_page_indicator: any
+  font_awesome_flutter: any
+  timeago: any
 
 dev_dependencies:
   flutter_test:

@@ -2,6 +2,7 @@ import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:bnans_iub/functions/custom_snackbar.dart';
 import 'package:bnans_iub/routes/routes.dart';
 import 'package:bnans_iub/widgets/custom_text_field.dart';
+import 'package:bnans_iub/widgets/getLoadingAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailTEC = TextEditingController();
   TextEditingController passwordTEC = TextEditingController();
+
+  bool isLoading = false;
+  bool keepUserLoggedIn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 60),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -125,16 +130,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SizedBox(
                                     width: 20,
                                     child: Checkbox(
-                                      value: false,
+                                      value: keepUserLoggedIn,
                                       activeColor: primaryColor,
-                                      onChanged: (value) {},
+                                      onChanged: (value) {
+                                        setState(() {
+                                          keepUserLoggedIn = value!;
+                                        });
+                                      },
                                     ),
                                   ),
                                   SizedBox(
                                     width: 5,
                                   ),
                                   InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      setState(() {
+                                        keepUserLoggedIn = !keepUserLoggedIn;
+                                      });
+                                    },
                                     child: Text(
                                       "Keep me logged in",
                                       style: getDefaultFontStyle,
@@ -144,30 +157,79 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             InkWell(
-                              onTap: () {
+                              onTap: () async {
+                                setState(() {
+                                  isLoading = true;
+                                });
+                                await Future.delayed(Duration(seconds: 2));
                                 Get.offNamed(Routes.getHomescreenRoute);
                                 showCustomSnackbar(
                                   "Hi, Kyoto",
                                   "Welcome aboard on BNANS. \nHave a save journey! :)",
                                 );
+                                setState(() {
+                                  isLoading = false;
+                                });
                               },
                               child: Container(
                                 height: 50,
                                 width: Get.width,
                                 decoration: BoxDecoration(
                                   color: primaryColor,
-                                  border:
-                                      Border.all(color: customBlack.withOpacity(.5)),
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Center(
-                                  child: Text(
-                                    'Sign in',
-                                    style: getMarkerFontStyle.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: customBlack,
-                                        fontSize: 20),
-                                  ),
+                                  child: isLoading
+                                      ? GetCustomCircularProgressIndicator()
+                                      : Text(
+                                          'Sign in',
+                                          style: getMarkerFontStyle.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: customBlack,
+                                              fontSize: 20),
+                                        ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            InkWell(
+                              onTap: () async {
+                                setState(() {
+                                  isLoading = true;
+                                });
+                                await Future.delayed(Duration(seconds: 2));
+                                Get.offNamed(Routes.getHomescreenRoute);
+                                showCustomSnackbar(
+                                  "Hi, Kyoto",
+                                  "Welcome aboard on BNANS. \nHave a save journey! :)",
+                                );
+                                setState(() {
+                                  isLoading = false;
+                                });
+                              },
+                              child: Container(
+                                height: 50,
+                                width: Get.width,
+                                decoration: BoxDecoration(
+                                  color: customBlack,
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Center(
+                                  child: isLoading
+                                      ? GetCustomCircularProgressIndicator()
+                                      : Text(
+                                          'Sign up',
+                                          style: getMarkerFontStyle.copyWith(
+                                              fontWeight: FontWeight.bold,
+                                              color: primaryColor,
+                                              fontSize: 20),
+                                        ),
                                 ),
                               ),
                             ),
@@ -179,7 +241,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               children: [
                                 Text(
                                   "Forgot your password? ",
-                                  style: getDefaultFontStyle.copyWith(fontSize: 13),
+                                  style: getDefaultFontStyle.copyWith(
+                                      fontSize: 13),
                                 ),
                                 Text(
                                   "Get help logging in.",

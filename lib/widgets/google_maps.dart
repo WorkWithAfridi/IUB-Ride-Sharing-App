@@ -8,7 +8,7 @@ class CustomGoogleMapsWidget extends StatefulWidget {
 
 class _CustomGoogleMapsWidgetState extends State<CustomGoogleMapsWidget> {
   static const _initialCameraPosition = CameraPosition(
-    target: LatLng(23.810331, 90.412521),
+    target: LatLng(23.745022, 90.4161212),
     zoom: 13,
   );
 
@@ -32,9 +32,8 @@ class _CustomGoogleMapsWidgetState extends State<CustomGoogleMapsWidget> {
           onMapCreated: (controller) => _googleMapController = controller,
           trafficEnabled: true,
           buildingsEnabled: true,
-          mapType: MapType.hybrid,
+          mapType: MapType.terrain,
           myLocationEnabled: true,
-
         )
       ],
     );
