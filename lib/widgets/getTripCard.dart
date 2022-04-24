@@ -20,40 +20,44 @@ class _GetTripCardState extends State<GetTripCard> {
       child: Card(
         elevation: 6,
         child: Container(
-          width: Get.width,
           padding: EdgeInsets.all(10),
           height: 130,
+          width: Get.width,
           child: Row(
             children: [
-              Container(
-                width: Get.width / 5,
-                decoration: BoxDecoration(
-                  border: Border.all(color: customBlack.withOpacity(.5)),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Container(
-                      height: Get.height,
-                      width: Get.width,
-                      child: Image.asset(
-                        'assets/images/maps/map (1).jpg',
-                        fit: BoxFit.cover,
+              Flexible(
+                flex: 1,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: customBlack.withOpacity(.5)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        height: Get.height,
+                        width: Get.width,
+                        child: Image.asset(
+                          'assets/images/maps/map (1).jpg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Image.asset(getRandomTransportVehicle()),
-                    ),
-                  ],
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Image.asset(getRandomTransportVehicle()),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
                 width: 10,
               ),
-              Expanded(
+              Flexible(
+                flex: 3,
                 child: Container(
+                  width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,7 +67,7 @@ class _GetTripCardState extends State<GetTripCard> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Khondakar Afridi",
+                            "Khondakar Afridi ",
                             style: getDefaultFontStyle.copyWith(
                                 fontWeight: FontWeight.w600),
                             overflow: TextOverflow.ellipsis,
@@ -84,11 +88,14 @@ class _GetTripCardState extends State<GetTripCard> {
                                 'From: ',
                                 style: getDefaultFontStyle,
                               ),
-                              Text(
-                                'Bailey Road, Shantinager.',
-                                style: getDefaultFontStyle.copyWith(
-                                    color: customBlack.withOpacity(.8)),
-                                overflow: TextOverflow.ellipsis,
+                              Expanded(
+                                child: Text(
+                                  ' Baily road, Shantinagar.',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: getDefaultFontStyle.copyWith(
+                                      color: customBlack.withOpacity(.8)),
+                                ),
                               ),
                             ],
                           ),
@@ -98,11 +105,14 @@ class _GetTripCardState extends State<GetTripCard> {
                                 'To: ',
                                 style: getDefaultFontStyle,
                               ),
-                              Text(
-                                'Independent University, Bangladesh.',
-                                style: getDefaultFontStyle.copyWith(
-                                    color: customBlack.withOpacity(.8)),
-                                overflow: TextOverflow.ellipsis,
+                              Expanded(
+                                child: Text(
+                                  'Independent University, Bangladesh.',
+                                  maxLines: 1,
+                                  style: getDefaultFontStyle.copyWith(
+                                      color: customBlack.withOpacity(.8)),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                             ],
                           ),
@@ -112,11 +122,14 @@ class _GetTripCardState extends State<GetTripCard> {
                                 'Via: ',
                                 style: getDefaultFontStyle,
                               ),
-                              Text(
-                                'Rampura, Hatir jheel.',
-                                style: getDefaultFontStyle.copyWith(
-                                  color: customBlack.withOpacity(.8),
-                                  overflow: TextOverflow.ellipsis,
+                              Expanded(
+                                child: Text(
+                                  'Rampura, Hatir jheel.',
+                                  maxLines: 1,
+                                  style: getDefaultFontStyle.copyWith(
+                                    color: customBlack.withOpacity(.8),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
                               ),
                             ],

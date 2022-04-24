@@ -103,27 +103,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     top: 40,
                     left: 0,
                     child: Container(
-                      width: Get.width,
-                      padding: EdgeInsets.only(right: 15),
+                      color: customWhite.withOpacity(.7),
+                      padding: EdgeInsets.all(15),
                       // color: Colors.red,
-                      height: 100,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                            'Legend',
+                            style: getDefaultFontStyle,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                'Your location',
-                                style: getDefaultFontStyle,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
                               Icon(
                                 FontAwesomeIcons.locationCrosshairs,
                                 color: Colors.red,
                               ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Your location',
+                                style: getDefaultFontStyle,
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -132,17 +139,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                'Onging to IUB',
-                                style: getDefaultFontStyle,
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
                               Icon(
                                 FontAwesomeIcons.locationDot,
                                 color: Colors.blueAccent,
                               ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Onging to IUB',
+                                style: getDefaultFontStyle,
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -151,16 +158,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                'Outgoing from IUB',
-                                style: getDefaultFontStyle,
+                              Icon(
+                                FontAwesomeIcons.locationDot,
+                                color: Colors.black,
                               ),
                               SizedBox(
                                 width: 5,
                               ),
-                              Icon(
-                                FontAwesomeIcons.locationDot,
-                                color: Colors.black,
+                              Text(
+                                'Outgoing from IUB',
+                                style: getDefaultFontStyle,
                               ),
                             ],
                           ),
@@ -319,13 +326,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SizedBox(
                                   height: 3,
                                 ),
-                                ListView.builder(
-                                  itemCount: 3,
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  itemBuilder: (context, index) {
-                                    return GetTripCard();
-                                  },
+                                Container(
+                                  width: Get.width,
+                                  child: ListView.builder(
+                                    itemCount: 3,
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index) {
+                                      return GetTripCard();
+                                    },
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 25,
@@ -355,13 +365,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SizedBox(
                                   height: 3,
                                 ),
-                                ListView.builder(
-                                  itemCount: 3,
-                                  shrinkWrap: true,
-                                  physics: NeverScrollableScrollPhysics(),
-                                  itemBuilder: (context, index) {
-                                    return GetTripCard();
-                                  },
+                                Container(
+                                  width: Get.width,
+                                  child: ListView.builder(
+                                    itemCount: 3,
+                                    shrinkWrap: true,
+                                    physics: NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index) {
+                                      return GetTripCard();
+                                    },
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 5,
