@@ -6,7 +6,7 @@ class AppTheme {
     return ThemeData.light().copyWith(
       primaryColor: customWhite,
       backgroundColor: customWhite,
-      appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+      appBarTheme: AppBarTheme(backgroundColor: customBlack),
       scaffoldBackgroundColor: customWhite
     );
   }

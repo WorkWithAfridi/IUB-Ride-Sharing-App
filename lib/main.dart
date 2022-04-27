@@ -3,10 +3,12 @@ import 'package:bnans_iub/screens/homescreen/home_screen.dart';
 import 'package:bnans_iub/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'constants/app_theme.dart';
 
-void main() {
+main() async {
+  await GetStorage.init();
   runApp(const Bnans());
 }
 

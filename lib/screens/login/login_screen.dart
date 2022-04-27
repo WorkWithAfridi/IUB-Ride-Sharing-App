@@ -1,7 +1,7 @@
 import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:bnans_iub/functions/custom_snackbar.dart';
 import 'package:bnans_iub/routes/routes.dart';
-import 'package:bnans_iub/widgets/custom_text_field.dart';
+import 'package:bnans_iub/widgets/customTextField.dart';
 import 'package:bnans_iub/widgets/getLoadingAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(
                               height: 5,
                             ),
-                            getCustomTextFieldWithIcon(
+                            GetCustomTextFieldWithIcon(
                               textEditingController: emailTEC,
                               labelText: "Enter email address...",
                               icon: Icons.email,
@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             SizedBox(
                               height: 10,
                             ),
-                            getCustomTextFieldWithIcon(
+                            GetCustomTextFieldWithIcon(
                               textEditingController: passwordTEC,
                               labelText: "Enter password...",
                               icon: Icons.password,
@@ -131,7 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: 20,
                                     child: Checkbox(
                                       value: keepUserLoggedIn,
-                                      activeColor: primaryColor,
+                                      activeColor: customBlack,
                                       onChanged: (value) {
                                         setState(() {
                                           keepUserLoggedIn = value!;

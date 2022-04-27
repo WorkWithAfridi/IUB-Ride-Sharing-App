@@ -3,6 +3,7 @@ import 'package:bnans_iub/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final box = GetStorage();
+
   @override
   void initState() {
     super.initState();
@@ -72,8 +75,15 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   triggerSplashScreenEvent() async {
+    var isFirstBoot = await box.read("isFirstBoot");
+
     Future.delayed(Duration(seconds: 4)).then((_) {
-      Get.offNamed(Routes.getOnboardingRoute);
+      if (isFirstBoot == null) {
+        box.write("isFirstBoot", false);
+        Get.offNamed(Routes.getOnboardingRoute);
+      } else {
+        Get.offNamed(Routes.getLoginRoute);
+      }
     });
   }
 }

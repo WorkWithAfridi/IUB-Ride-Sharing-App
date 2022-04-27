@@ -41,20 +41,21 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(
           "BNANS",
-          style: getMarkerFontStyle.copyWith(color: customBlack),
+          style: getMarkerFontStyle.copyWith(color: primaryColor),
         ),
+        backgroundColor: customBlack,
         centerTitle: true,
         leading: IconButton(
           onPressed: () {},
           icon: Icon(
             Icons.menu,
-            color: customBlack,
+            size: 20,
+            color: customWhite,
           ),
         ),
         actions: [
           InkWell(
             onTap: () {
-              print('go to profile');
               Get.toNamed(Routes.getProfileRoute);
             },
             splashColor: Colors.transparent,
@@ -63,22 +64,22 @@ class _HomeScreenState extends State<HomeScreen> {
               alignment: Alignment.center,
               children: [
                 Container(
-                  height: 35,
-                  width: 35,
+                  height: 30,
+                  width: 30,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(35),
-                    color: customBlack,
+                    borderRadius: BorderRadius.circular(30),
+                    color: primaryColor,
                   ),
                 ),
                 Container(
-                  height: 32,
-                  width: 32,
+                  height: 28,
+                  width: 28,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(28),
                     color: primaryColor,
                   ),
                   child: CircleAvatar(
-                    backgroundColor: primaryColor,
+                    backgroundColor: customBlack,
                     backgroundImage: NetworkImage(
                         'https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
                   ),
@@ -240,17 +241,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            "Active Trips",
-                                            style: getMarkerFontStyle.copyWith(
-                                              color: customBlack,
-                                              fontSize: 25,
-                                            ),
+                                          SizedBox(
+                                            height: 5,
                                           ),
                                           Text(
-                                            '23rd June - 12:01PM',
+                                            "Current active trips:",
                                             style: getDefaultFontStyle.copyWith(
-                                                fontSize: 12),
+                                                color: customBlack
+                                                    .withOpacity(.9)),
+                                          ),
+                                          Text(
+                                            "23",
+                                            style: getMarkerFontStyle.copyWith(
+                                                color: customBlack
+                                                    .withOpacity(.9)),
                                           )
                                         ],
                                       ),
@@ -261,6 +265,48 @@ class _HomeScreenState extends State<HomeScreen> {
                                             'assets/lottie_animations/carLottieAnimation.json'),
                                       )
                                     ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    Get.toNamed(Routes.getCreateATripRoute);
+                                  },
+                                  child: Container(
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                                color:
+                                                    customBlack.withOpacity(.9),
+                                                width: 2),
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                          child: Icon(
+                                            Icons.add,
+                                            color: customBlack.withOpacity(.9),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          'Create a Trip',
+                                          style: getDefaultFontStyle.copyWith(
+                                              fontSize: 15,
+                                              color:
+                                                  customBlack.withOpacity(.8)),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -320,14 +366,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Text(
                                         'Ongoing trips',
                                         style: getDefaultFontStyle.copyWith(
-                                            color: customBlack, fontSize: 15),
+                                            color: customBlack,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
                                       ),
                                       Text(
                                         'See more',
                                         style: getDefaultFontStyle.copyWith(
-                                            color: customBlack,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
+                                            color: customBlack, fontSize: 15),
                                       ),
                                     ],
                                   ),
@@ -359,14 +405,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Text(
                                         'Outgoing trips',
                                         style: getDefaultFontStyle.copyWith(
-                                            color: customBlack, fontSize: 15),
+                                            color: customBlack,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
                                       ),
                                       Text(
                                         'See more',
                                         style: getDefaultFontStyle.copyWith(
-                                            color: customBlack,
-                                            fontSize: 15,
-                                            fontWeight: FontWeight.bold),
+                                            color: customBlack, fontSize: 15),
                                       ),
                                     ],
                                   ),

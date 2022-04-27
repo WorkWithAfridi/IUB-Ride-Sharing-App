@@ -1,3 +1,4 @@
+import 'package:bnans_iub/screens/homescreen/addATrip.dart';
 import 'package:bnans_iub/screens/homescreen/home_screen.dart';
 import 'package:bnans_iub/screens/homescreen/profile.dart';
 import 'package:bnans_iub/screens/homescreen/travelling_to.dart';
@@ -13,6 +14,7 @@ class Routes {
   static get getHomescreenRoute => '/homescreen';
   static get getProfileRoute => '/profile';
   static get getTravellingToIUBScreen => '/travellingto';
+  static get getCreateATripRoute => '/createATrip';
   static List<GetPage> routes = [
     GetPage(
       name: getSplashScreenRoute,
@@ -37,6 +39,11 @@ class Routes {
       name: getProfileRoute,
       page: () => Profile(),
       transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: getCreateATripRoute,
+      page: () => CreateATrip(),
+      transition: Transition.downToUp,
     ),
     GetPage(
       name: getTravellingToIUBScreen,

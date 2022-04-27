@@ -1,13 +1,13 @@
 import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class getCustomTextFieldWithIcon extends StatelessWidget {
+class GetCustomTextFieldWithIcon extends StatelessWidget {
   final TextEditingController textEditingController;
   final String labelText;
   final IconData icon;
   final bool isObscure;
 
-  const getCustomTextFieldWithIcon(
+  const GetCustomTextFieldWithIcon(
       {Key? key,
       required this.textEditingController,
       required this.labelText,
@@ -47,6 +47,48 @@ class getCustomTextFieldWithIcon extends StatelessWidget {
         ),
         obscureText: isObscure,
       ),
+    );
+  }
+}
+
+class GetCustomTextField extends StatelessWidget {
+  final TextEditingController textEditingController;
+  final bool isPass;
+  final String hintText;
+  final TextInputType textInputType;
+  final int maxLines;
+
+  const GetCustomTextField(
+      {Key? key,
+      required this.textEditingController,
+      this.isPass = false,
+      required this.hintText,
+      required this.textInputType,
+      required this.maxLines})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final inputBorder = OutlineInputBorder(
+      borderSide: Divider.createBorderSide(context, color: customBlack),
+    );
+    return TextField(
+      style: getDefaultFontStyle,
+      cursorColor: Colors.white54,
+      controller: textEditingController,
+      maxLines: maxLines,
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: getDefaultFontStyle,
+        border: inputBorder,
+        focusedBorder: inputBorder,
+        enabledBorder: inputBorder,
+        fillColor: Colors.white10,
+        filled: true,
+        contentPadding: const EdgeInsets.all(8),
+      ),
+      keyboardType: textInputType,
+      obscureText: isPass,
     );
   }
 }

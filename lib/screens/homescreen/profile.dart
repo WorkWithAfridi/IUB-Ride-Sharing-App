@@ -1,6 +1,8 @@
 import 'package:bnans_iub/constants/app_theme.dart';
 import 'package:bnans_iub/routes/routes.dart';
+import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class Profile extends StatelessWidget {
@@ -12,18 +14,10 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "Khondakar Afridi",
-          style: getMarkerFontStyle.copyWith(fontSize: 15, color: customBlack),
+          style: getMarkerFontStyle.copyWith(fontSize: 15, color: customWhite),
         ),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.close,
-            color: customBlack,
-          ),
-        ),
+        leading: GetBackButton()
       ),
       body: Stack(
         children: [
@@ -50,15 +44,15 @@ class Profile extends StatelessWidget {
                   alignment: Alignment.center,
                   children: [
                     Container(
-                      height:110,
-                      width:110,
+                      height: 110,
+                      width: 110,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(110),
                         color: primaryColor,
                       ),
                     ),
                     Container(
-                      height:105,
+                      height: 105,
                       width: 105,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(105),
@@ -107,12 +101,12 @@ class Profile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          'School ID',
+                          'Phone',
                           style:
                               getDefaultFontStyle.copyWith(color: customWhite),
                         ),
                         Text(
-                          "1820461",
+                          "01741499768",
                           style:
                               getDefaultFontStyle.copyWith(color: customWhite),
                         ),
@@ -127,21 +121,24 @@ class Profile extends StatelessWidget {
                   onTap: () async {
                     Get.offAllNamed(Routes.getLoginRoute);
                   },
-                  child: Container(
-                    height: 50,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                      color: primaryColor,
-                      border: Border.all(color: primaryColor.withOpacity(.5)),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Sign up',
-                        style: getMarkerFontStyle.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: customBlack,
-                            fontSize: 20),
+                  child: Padding(
+                    padding: getGlobalPadding(),
+                    child: Container(
+                      height: 50,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        border: Border.all(color: primaryColor.withOpacity(.5)),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Sign out',
+                          style: getMarkerFontStyle.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: customBlack,
+                              fontSize: 20),
+                        ),
                       ),
                     ),
                   ),
