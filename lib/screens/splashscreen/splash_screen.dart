@@ -42,11 +42,23 @@ class _SplashScreenState extends State<SplashScreen> {
               height: Get.height,
               width: Get.width,
               color: Colors.black.withOpacity(.5),
-              child: Center(
-                child: Text(
-                  "Bnans",
-                  style: getMarkerFontStyle,
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Bnans",
+                    style: getMarkerFontStyle,
+                  ),
+                  // Text(
+                  //   "Powered by\n Independent University, Bangladesh.",
+                  //   style: getDefaultFontStyle.copyWith(
+                  //     color: Colors.yellow,
+                  //     fontSize: 14,
+                  //   ),
+                  //   textAlign: TextAlign.center,
+                  // ),
+                ],
               ),
             ),
             Positioned(

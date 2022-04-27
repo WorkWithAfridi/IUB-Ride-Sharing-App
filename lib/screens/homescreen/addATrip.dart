@@ -25,14 +25,14 @@ class _CreateATripState extends State<CreateATrip> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: customBlack,
-          title: Text(
-            "Creating a new trip",
-            style:
-                getMarkerFontStyle.copyWith(fontSize: 15, color: customWhite),
-          ),
-          centerTitle: true,
-          leading: GetBackButton()),
+        backgroundColor: customBlack,
+        title: Text(
+          "Creating a new trip",
+          style: getMarkerFontStyle.copyWith(fontSize: 15, color: customWhite),
+        ),
+        centerTitle: true,
+        leading: GetBackButton(),
+      ),
       body: Container(
         color: customWhite,
         width: Get.width,
@@ -40,686 +40,591 @@ class _CreateATripState extends State<CreateATrip> {
         //   color: customWhite,
         //   borderRadius: BorderRadius.only(topLeft: Radius.circular(15)),
         // ),
-        child: Expanded(
-          child: SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                // Padding(
-                //   padding: EdgeInsets.symmetric(
-                //     horizontal: 20,
-                //   ),
-                //   child: Text(
-                //     'Creating a new trip',
-                //     style: getDefaultFontStyle.copyWith(
-                //         fontWeight: FontWeight.w700, fontSize: 20),
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 20,
-                // ),
-                Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Stack(
-                                              alignment: Alignment.center,
-                                              children: [
-                                                Container(
-                                                  height: 15,
-                                                  width: 15,
-                                                  decoration: BoxDecoration(
-                                                    color: customBlack,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  height: 4,
-                                                  width: 4,
-                                                  decoration: BoxDecoration(
-                                                    color: customWhite,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Container(
-                                                  height: 60,
-                                                  width: 2,
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(
+              //     horizontal: 20,
+              //   ),
+              //   child: Text(
+              //     'Creating a new trip',
+              //     style: getDefaultFontStyle.copyWith(
+              //         fontWeight: FontWeight.w700, fontSize: 20),
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              Column(
+                children: [
+                  Padding(
+                    padding: getGlobalPadding(),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Route',
+                          style: getDefaultFontStyle.copyWith(
+                              fontWeight: FontWeight.w700, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Stack(
+                                            alignment: Alignment.center,
+                                            children: [
+                                              Container(
+                                                height: 15,
+                                                width: 15,
+                                                decoration: BoxDecoration(
                                                   color: customBlack,
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
                                                 ),
-                                                SizedBox(
-                                                  width: 1,
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Expanded(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "From",
-                                                style: getDefaultFontStyle
-                                                    .copyWith(
-                                                        color: customBlack
-                                                            .withOpacity(.7)),
                                               ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              GetCustomTextField(
-                                                hintText:
-                                                    'Enter your current location',
-                                                textEditingController: FromTEC,
-                                                maxLines: 1,
-                                                textInputType:
-                                                    TextInputType.text,
+                                              Container(
+                                                height: 4,
+                                                width: 4,
+                                                decoration: BoxDecoration(
+                                                  color: customWhite,
+                                                  borderRadius:
+                                                      BorderRadius.circular(4),
+                                                ),
                                               ),
                                             ],
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        SizedBox(
-                                          width: 6,
-                                        ),
-                                        Container(
-                                          height: 15,
-                                          width: 2,
-                                          color: customBlack,
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            Container(
-                                              height: 15,
-                                              width: 15,
-                                              decoration: BoxDecoration(
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                height: 60,
+                                                width: 2,
                                                 color: customBlack,
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
                                               ),
+                                              SizedBox(
+                                                width: 1,
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "From",
+                                              style:
+                                                  getDefaultFontStyle.copyWith(
+                                                      color: customBlack
+                                                          .withOpacity(.7)),
                                             ),
-                                            Container(
-                                              height: 4,
-                                              width: 4,
-                                              decoration: BoxDecoration(
-                                                color: customWhite,
-                                                borderRadius:
-                                                    BorderRadius.circular(4),
-                                              ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            GetCustomTextField(
+                                              hintText:
+                                                  'Enter your current location',
+                                              textEditingController: FromTEC,
+                                              maxLines: 1,
+                                              textInputType: TextInputType.text,
                                             ),
                                           ],
                                         ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Expanded(
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "To",
-                                                style: getDefaultFontStyle
-                                                    .copyWith(
-                                                        color: customBlack
-                                                            .withOpacity(.7)),
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              GetCustomTextField(
-                                                hintText:
-                                                    'Enter the location you are heading',
-                                                textEditingController: ToTEC,
-                                                maxLines: 1,
-                                                textInputType:
-                                                    TextInputType.text,
-                                              ),
-                                            ],
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 6,
+                                      ),
+                                      Container(
+                                        height: 15,
+                                        width: 2,
+                                        color: customBlack,
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Container(
+                                            height: 15,
+                                            width: 15,
+                                            decoration: BoxDecoration(
+                                              color: customBlack,
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                            ),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                  ],
+                                          Container(
+                                            height: 4,
+                                            width: 4,
+                                            decoration: BoxDecoration(
+                                              color: customWhite,
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "To",
+                                              style:
+                                                  getDefaultFontStyle.copyWith(
+                                                      color: customBlack
+                                                          .withOpacity(.7)),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            GetCustomTextField(
+                                              hintText:
+                                                  'Enter the location you are heading',
+                                              textEditingController: ToTEC,
+                                              maxLines: 1,
+                                              textInputType: TextInputType.text,
+                                            ),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              // width: 60,
+                              child: IconButton(
+                                icon: RotatedBox(
+                                  quarterTurns: 1,
+                                  child: Icon(
+                                    FontAwesomeIcons.arrowRightArrowLeft,
+                                    size: 15,
+                                  ),
                                 ),
+                                onPressed: () {
+                                  setState(() {
+                                    String fromTEC = FromTEC.text;
+                                    FromTEC.text = ToTEC.text;
+                                    ToTEC.text = fromTEC;
+                                  });
+                                },
                               ),
-                              SizedBox(
-                                width: 10,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Container(
+                      height: 1,
+                      width: Get.width,
+                      color: customBlack.withOpacity(.1),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Transport medium',
+                          style: getDefaultFontStyle.copyWith(
+                              fontWeight: FontWeight.w700, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: customBlack.withOpacity(.5)),
+                                borderRadius: BorderRadius.circular(5),
                               ),
-                              Container(
-                                // width: 60,
-                                child: IconButton(
-                                  icon: RotatedBox(
-                                    quarterTurns: 1,
-                                    child: Icon(
-                                      FontAwesomeIcons.arrowRightArrowLeft,
-                                      size: 15,
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    child: Image.asset(
+                                      'assets/images/maps/map (1).jpg',
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  onPressed: () {
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Image.asset(
+                                        'assets/images/maps/motorbike.png'),
+                                  ),
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    color: Colors.grey.withOpacity(.8),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Bike',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: customBlack.withOpacity(.5)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    child: Image.asset(
+                                      'assets/images/maps/map (1).jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Image.asset(
+                                        'assets/images/maps/privateCar.png'),
+                                  ),
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    color: Colors.grey.withOpacity(.8),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Car',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: customBlack.withOpacity(.5)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    child: Image.asset(
+                                      'assets/images/maps/map (1).jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Image.asset(
+                                        'assets/images/maps/privateCar.png'),
+                                  ),
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    color: Colors.grey.withOpacity(.8),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Uber',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: customBlack.withOpacity(.5)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    child: Image.asset(
+                                      'assets/images/maps/map (1).jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Image.asset(
+                                        'assets/images/maps/rickshaw.png'),
+                                  ),
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    color: Colors.grey.withOpacity(.8),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Rickshaw',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: customBlack.withOpacity(.5)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    child: Image.asset(
+                                      'assets/images/maps/map (1).jpg',
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Image.asset(
+                                        'assets/images/maps/privateCar.png'),
+                                  ),
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    color: Colors.grey.withOpacity(.8),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Bus',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20,
+                    ),
+                    child: Container(
+                      height: 1,
+                      width: Get.width,
+                      color: customBlack.withOpacity(.1),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Seat and Time',
+                              style: getDefaultFontStyle.copyWith(
+                                  fontWeight: FontWeight.w700, fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  height: 10,
+                                  width: 10,
+                                  decoration: BoxDecoration(
+                                    color: customBlack,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Available seats',
+                                  style: getDefaultFontStyle,
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
                                     setState(() {
-                                      String fromTEC = FromTEC.text;
-                                      FromTEC.text = ToTEC.text;
-                                      ToTEC.text = fromTEC;
+                                      numberOfSeatsAvailable--;
                                     });
                                   },
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Container(
-                        height: 1,
-                        width: Get.width,
-                        color: customBlack.withOpacity(.1),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Transport medium',
-                            style: getDefaultFontStyle.copyWith(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    SingleChildScrollView(
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      child: Image.asset(
-                                        'assets/images/maps/map (1).jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Image.asset(
-                                          'assets/images/maps/motorbike.png'),
-                                    ),
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      color: Colors.grey.withOpacity(.8),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                'Bike',
-                                style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      child: Image.asset(
-                                        'assets/images/maps/map (1).jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Image.asset(
-                                          'assets/images/maps/privateCar.png'),
-                                    ),
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      color: Colors.grey.withOpacity(.8),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                'Car',
-                                style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      child: Image.asset(
-                                        'assets/images/maps/map (1).jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Image.asset(
-                                          'assets/images/maps/privateCar.png'),
-                                    ),
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      color: Colors.grey.withOpacity(.8),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                'Uber',
-                                style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      child: Image.asset(
-                                        'assets/images/maps/map (1).jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Image.asset(
-                                          'assets/images/maps/rickshaw.png'),
-                                    ),
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      color: Colors.grey.withOpacity(.8),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                'Rickshaw',
-                                style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      child: Image.asset(
-                                        'assets/images/maps/map (1).jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Image.asset(
-                                          'assets/images/maps/privateCar.png'),
-                                    ),
-                                    Container(
-                                      height: Get.height,
-                                      width: Get.width,
-                                      color: Colors.grey.withOpacity(.8),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                'Bus',
-                                style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 25,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                      ),
-                      child: Container(
-                        height: 1,
-                        width: Get.width,
-                        color: customBlack.withOpacity(.1),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Seat and Time',
-                                style: getDefaultFontStyle.copyWith(
-                                    fontWeight: FontWeight.w700, fontSize: 14),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 10,
-                                    width: 10,
-                                    decoration: BoxDecoration(
-                                      color: customBlack,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Available seats',
-                                    style: getDefaultFontStyle,
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        numberOfSeatsAvailable--;
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 30,
-                                      width: 30,
-                                      decoration: BoxDecoration(
-                                        color: customBlack.withOpacity(.2),
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Icon(
-                                        FontAwesomeIcons.minus,
-                                        size: 12,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      color: customBlack,
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      numberOfSeatsAvailable.toString(),
-                                      style: getDefaultFontStyle.copyWith(
-                                          color: customWhite,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        numberOfSeatsAvailable++;
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 30,
-                                      width: 30,
-                                      decoration: BoxDecoration(
-                                        color: customBlack.withOpacity(.2),
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Icon(
-                                        FontAwesomeIcons.plus,
-                                        size: 12,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 10,
-                                    width: 10,
-                                    decoration: BoxDecoration(
-                                      color: customBlack,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text(
-                                    'Schedule Time',
-                                    style: getDefaultFontStyle,
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      color: customBlack,
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      'now',
-                                      style: getDefaultFontStyle.copyWith(
-                                          color: customWhite,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 10),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Container(
+                                  child: Container(
                                     height: 30,
                                     width: 30,
                                     decoration: BoxDecoration(
@@ -728,128 +633,232 @@ class _CreateATripState extends State<CreateATrip> {
                                     ),
                                     alignment: Alignment.center,
                                     child: Icon(
-                                      FontAwesomeIcons.clock,
-                                      size: 15,
+                                      FontAwesomeIcons.minus,
+                                      size: 12,
                                     ),
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    color: customBlack,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    numberOfSeatsAvailable.toString(),
+                                    style: getDefaultFontStyle.copyWith(
+                                        color: customWhite,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      numberOfSeatsAvailable++;
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                      color: customBlack.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: Icon(
+                                      FontAwesomeIcons.plus,
+                                      size: 12,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  height: 10,
+                                  width: 10,
+                                  decoration: BoxDecoration(
+                                    color: customBlack,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  'Schedule Time',
+                                  style: getDefaultFontStyle,
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    color: customBlack,
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(
+                                    'now',
+                                    style: getDefaultFontStyle.copyWith(
+                                        color: customWhite,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 10),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    color: customBlack.withOpacity(.2),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Icon(
+                                    FontAwesomeIcons.clock,
+                                    size: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Container(
+                  height: 1,
+                  width: Get.width,
+                  color: customBlack.withOpacity(.1),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Fare',
+                          style: getDefaultFontStyle.copyWith(
+                              fontWeight: FontWeight.w700, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GetCustomTextField(
+                      textEditingController: FareTEC,
+                      hintText:
+                          "Enter the price you're asking for each available seat",
+                      textInputType: TextInputType.number,
+                      maxLines: 1,
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 25,
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Container(
+                  height: 1,
+                  width: Get.width,
+                  color: customBlack.withOpacity(.1),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    height: 1,
-                    width: Get.width,
-                    color: customBlack.withOpacity(.1),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Fare',
-                            style: getDefaultFontStyle.copyWith(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GetCustomTextField(
-                        textEditingController: FareTEC,
-                        hintText:
-                            "Enter the price you're asking for each available seat",
-                        textInputType: TextInputType.number,
-                        maxLines: 1,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    height: 1,
-                    width: Get.width,
-                    color: customBlack.withOpacity(.1),
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Description of the trip',
-                            style: getDefaultFontStyle.copyWith(
-                                fontWeight: FontWeight.w700, fontSize: 14),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      GetCustomTextField(
-                        textEditingController: descriptionTEC,
-                        hintText:
-                            "Enter some details of the route you will be taking.",
-                        textInputType: TextInputType.text,
-                        maxLines: 4,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    height: 50,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                      color: customBlack,
-                      borderRadius: BorderRadius.circular(5),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Description of the trip',
+                          style: getDefaultFontStyle.copyWith(
+                              fontWeight: FontWeight.w700, fontSize: 14),
+                        ),
+                      ],
                     ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Confirm',
-                      style: getDefaultFontStyle.copyWith(
-                          color: customWhite,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15),
+                    SizedBox(
+                      height: 10,
                     ),
+                    GetCustomTextField(
+                      textEditingController: descriptionTEC,
+                      hintText:
+                          "Enter some details of the route you will be taking.",
+                      textInputType: TextInputType.text,
+                      maxLines: 4,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Container(
+                  height: 50,
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                    color: customBlack,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Confirm',
+                    style: getDefaultFontStyle.copyWith(
+                        color: customWhite,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
           ),
         ),
       ),
