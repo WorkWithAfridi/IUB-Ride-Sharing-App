@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../functions/randomColor.dart';
+import '../../widgets/divider.dart';
 
 class CreateATrip extends StatefulWidget {
   const CreateATrip({Key? key}) : super(key: key);
@@ -25,13 +26,13 @@ class _CreateATripState extends State<CreateATrip> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: customBlack,
         title: Text(
-          "Creating a new trip",
-          style: getMarkerFontStyle.copyWith(fontSize: 15, color: customWhite),
+          "Registering a new trip",
+          style: getDefaultFontStyle,
         ),
         centerTitle: true,
         leading: GetBackButton(),
+        elevation: 0,
       ),
       body: Container(
         color: customWhite,
@@ -46,22 +47,6 @@ class _CreateATripState extends State<CreateATrip> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(
-              //     horizontal: 20,
-              //   ),
-              //   child: Text(
-              //     'Creating a new trip',
-              //     style: getDefaultFontStyle.copyWith(
-              //         fontWeight: FontWeight.w700, fontSize: 20),
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 20,
-              // ),
               Column(
                 children: [
                   Padding(
@@ -77,13 +62,8 @@ class _CreateATripState extends State<CreateATrip> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                    padding: getGlobalPadding(),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -275,26 +255,37 @@ class _CreateATripState extends State<CreateATrip> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 25,
-                  ),
+                  GetCustomDivider(),
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Container(
-                      height: 1,
-                      width: Get.width,
-                      color: customBlack.withOpacity(.1),
+                    padding: getGlobalPadding(),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Description of the trip',
+                              style: getDefaultFontStyle.copyWith(
+                                  fontWeight: FontWeight.w700, fontSize: 14),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        GetCustomTextField(
+                          textEditingController: descriptionTEC,
+                          hintText:
+                          "What routes are you planning on taking?",
+                          textInputType: TextInputType.text,
+                          maxLines: 4,
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                  GetCustomDivider(),
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
+                    padding: getGlobalPadding(),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -562,23 +553,11 @@ class _CreateATripState extends State<CreateATrip> {
                     ),
                   ),
                   SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                    ),
-                    child: Container(
-                      height: 1,
-                      width: Get.width,
-                      color: customBlack.withOpacity(.1),
-                    ),
-                  ),
-                  SizedBox(
                     height: 15,
                   ),
+                  GetCustomDivider(),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: getGlobalPadding(),
                     child: Column(
                       children: [
                         Row(
@@ -751,22 +730,9 @@ class _CreateATripState extends State<CreateATrip> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: 25,
-              ),
+              GetCustomDivider(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Container(
-                  height: 1,
-                  width: Get.width,
-                  color: customBlack.withOpacity(.1),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: getGlobalPadding(),
                 child: Column(
                   children: [
                     Row(
@@ -793,65 +759,29 @@ class _CreateATripState extends State<CreateATrip> {
                 ),
               ),
               SizedBox(
-                height: 25,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Container(
-                  height: 1,
-                  width: Get.width,
-                  color: customBlack.withOpacity(.1),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Description of the trip',
-                          style: getDefaultFontStyle.copyWith(
-                              fontWeight: FontWeight.w700, fontSize: 14),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    GetCustomTextField(
-                      textEditingController: descriptionTEC,
-                      hintText:
-                          "Enter some details of the route you will be taking.",
-                      textInputType: TextInputType.text,
-                      maxLines: 4,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
                 height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Container(
-                  height: 50,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                    color: customBlack,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Confirm',
-                    style: getDefaultFontStyle.copyWith(
-                        color: customWhite,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 50,
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: customBlack.withOpacity(.5)),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Confirm',
+                        style: getDefaultFontStyle.copyWith(
+                          color: customBlack,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),

@@ -72,28 +72,22 @@ class _LoginScreenState extends State<LoginScreen> {
                             Text(
                               'Bnans',
                               style: getMarkerFontStyle.copyWith(
-                                  color: customBlack, fontSize: 30, height: .8),
+                                  color: customBlack, height: .8),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   '• Safer ',
-                                  style: getDefaultFontStyle.copyWith(
-                                    fontSize: 12,
-                                  ),
+                                  style: getDefaultFontStyle,
                                 ),
                                 Text(
                                   '• Faster ',
-                                  style: getDefaultFontStyle.copyWith(
-                                    fontSize: 12,
-                                  ),
+                                  style: getDefaultFontStyle,
                                 ),
                                 Text(
                                   '• Cheaper ',
-                                  style: getDefaultFontStyle.copyWith(
-                                    fontSize: 12,
-                                  ),
+                                  style: getDefaultFontStyle,
                                 ),
                               ],
                             ),
@@ -103,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Text(
                               'Sign in',
                               style: getMarkerFontStyle.copyWith(
-                                  color: customBlack, fontSize: 18),
+                                  color: customBlack, fontSize: 20),
                             ),
                             SizedBox(
                               height: 5,
@@ -162,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   isLoading = true;
                                 });
                                 await Future.delayed(Duration(seconds: 2));
-                                Get.offNamed(Routes.getHomescreenRoute);
+                                Get.offNamed(Routes.getIntroductionRoute);
                                 showCustomSnackbar(
                                   "Hi, Kyoto",
                                   "Welcome aboard on BNANS. \nHave a save journey! :)",
@@ -226,13 +220,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               children: [
                                 Text(
                                   "Forgot your password? ",
-                                  style: getDefaultFontStyle.copyWith(
-                                      fontSize: 13),
+                                  style: getDefaultFontStyle,
                                 ),
                                 Text(
                                   "Get help logging in.",
                                   style: getDefaultFontStyle.copyWith(
-                                    fontSize: 13,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

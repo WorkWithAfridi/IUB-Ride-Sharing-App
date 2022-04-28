@@ -6,7 +6,7 @@ class AppTheme {
     return ThemeData.light().copyWith(
       primaryColor: customWhite,
       backgroundColor: customWhite,
-      appBarTheme: AppBarTheme(backgroundColor: customBlack),
+      appBarTheme: AppBarTheme(backgroundColor: customWhite),
       scaffoldBackgroundColor: customWhite
     );
   }
@@ -14,18 +14,19 @@ class AppTheme {
 
 Color primaryColor = Color(0xffFFDB15);
 Color customBlack = Color(0xff242526);
-Color customWhite = Color(0xffF6F5F8);
+Color customWhite = Color(0xffF9F9FB);
 Color customRed = Color(0xffE4021B);
 
-TextStyle getDefaultFontStyle = const TextStyle(
+TextStyle getDefaultFontStyle = TextStyle(
   fontFamily: 'Lato',
+  color: customBlack,
   fontSize: 13,
   fontWeight: FontWeight.normal,
 );
 
 TextStyle getBoldFontStyle = const TextStyle(
   fontFamily: 'UberMoveMedium',
-  fontSize: 16,
+  fontSize: 13,
   fontWeight: FontWeight.w700,
 );
 
@@ -42,5 +43,5 @@ TextStyle getHandWritingFontStyle = TextStyle(
     color: primaryColor);
 
 getGlobalPadding() {
-  return const EdgeInsets.symmetric(horizontal: 15);
+  return const EdgeInsets.symmetric(horizontal: 20, vertical: 5);
 }

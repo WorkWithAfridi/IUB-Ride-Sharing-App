@@ -3,6 +3,7 @@ import 'package:bnans_iub/screens/homescreen/home_screen.dart';
 import 'package:bnans_iub/screens/homescreen/profile.dart';
 import 'package:bnans_iub/screens/homescreen/travelling_to.dart';
 import 'package:bnans_iub/screens/homescreen/tripDetails.dart';
+import 'package:bnans_iub/screens/introduction/introduction.dart';
 import 'package:bnans_iub/screens/login/login_screen.dart';
 import 'package:bnans_iub/screens/onboarding/onboarding_screen.dart';
 import 'package:bnans_iub/screens/splashscreen/splash_screen.dart';
@@ -12,6 +13,7 @@ class Routes {
   static get getSplashScreenRoute => '/splashScreen';
   static get getOnboardingRoute => '/onboarding';
   static get getLoginRoute => '/login';
+  static get getIntroductionRoute => '/introductionScreen';
   static get getHomescreenRoute => '/homescreen';
   static get getProfileRoute => '/profile';
   static get getTravellingToIUBScreen => '/travellingto';
@@ -35,6 +37,11 @@ class Routes {
     GetPage(
       name: getHomescreenRoute,
       page: () => HomeScreen(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: getIntroductionRoute,
+      page: () => IntroductionScreen(),
       transition: Transition.fadeIn,
     ),
     GetPage(
@@ -55,7 +62,7 @@ class Routes {
     GetPage(
       name: getTripDetails,
       page: () => TripDetails(),
-      transition: Transition.upToDown,
+      transition: Transition.downToUp,
     ),
   ];
 }

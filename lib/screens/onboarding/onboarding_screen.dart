@@ -190,41 +190,43 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
   getBanner() {
     return Container(
-        height: 105,
-        padding: getGlobalPadding(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              pageIndex == 0
-                  ? "Title 1"
-                  : pageIndex == 1
-                      ? "Title 2"
-                      : pageIndex == 2
-                          ? "Title 3"
-                          : "",
-              style:
-                  getMarkerFontStyle.copyWith(fontSize: 20, color: customBlack),
+      height: 115,
+      padding: getGlobalPadding(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            pageIndex == 0
+                ? "Title 1"
+                : pageIndex == 1
+                    ? "Title 2"
+                    : pageIndex == 2
+                        ? "Title 3"
+                        : "",
+            style:
+                getMarkerFontStyle.copyWith(fontSize: 20, color: customBlack),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            pageIndex == 0
+                ? 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin'
+                : pageIndex == 1
+                    ? 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.'
+                    : pageIndex == 2
+                        ? 'Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.'
+                        : "",
+            style: getDefaultFontStyle.copyWith(
+              color: customBlack.withOpacity(.6),
             ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              pageIndex == 0
-                  ? 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin'
-                  : pageIndex == 1
-                      ? 'Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.'
-                      : pageIndex == 2
-                          ? 'Praesent dapibus, neque id cursus faucibus, tortor neque egestas auguae, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.'
-                          : "",
-              style: getDefaultFontStyle.copyWith(
-                  fontSize: 14, color: customBlack.withOpacity(.6)),
-              textAlign: TextAlign.center,
-              maxLines: 4,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ],
-        ));
+            textAlign: TextAlign.center,
+            maxLines: 4,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
+    );
   }
 }

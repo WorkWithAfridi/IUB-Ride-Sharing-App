@@ -12,7 +12,7 @@ GetBackButton() {
     icon: Icon(
       FontAwesomeIcons.arrowLeft,
       size: 15,
-      color: customWhite,
+      color: customBlack,
     ),
   );
 }

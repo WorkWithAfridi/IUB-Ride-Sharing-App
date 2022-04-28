@@ -24,20 +24,22 @@ class GetCustomTextFieldWithIcon extends StatelessWidget {
         controller: textEditingController,
         decoration: InputDecoration(
           labelText: labelText,
-          hintStyle: getDefaultFontStyle.copyWith(color: customBlack),
+          hintStyle: getDefaultFontStyle,
           focusColor: customBlack,
           prefixIcon: Icon(
             icon,
             color: customBlack,
             size: 16,
           ),
-          labelStyle: getDefaultFontStyle.copyWith(color: customBlack),
+          labelStyle: getDefaultFontStyle,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: BorderSide(
               color: customBlack.withOpacity(.5),
             ),
           ),
+          fillColor: Colors.white,
+          filled: true,
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: BorderSide(
@@ -83,7 +85,7 @@ class GetCustomTextField extends StatelessWidget {
         border: inputBorder,
         focusedBorder: inputBorder,
         enabledBorder: inputBorder,
-        fillColor: Colors.white10,
+        fillColor: Colors.white,
         filled: true,
         contentPadding: const EdgeInsets.all(8),
       ),

@@ -1,3 +1,4 @@
+import 'package:bnans_iub/widgets/divider.dart';
 import 'package:bnans_iub/widgets/google_maps.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,34 +19,105 @@ class _TripDetailsState extends State<TripDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: customBlack,
         title: Text(
-          "Trip Detail",
-          style: getMarkerFontStyle.copyWith(fontSize: 15, color: customWhite),
+          "Trip details",
+          style: getDefaultFontStyle,
         ),
         centerTitle: true,
         leading: GetBackButton(),
+        elevation: 0,
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            Container(
               height: Get.height / 4,
+              padding: getGlobalPadding(),
               child: CustomGoogleMapsWidget(),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 20,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              padding: getGlobalPadding(),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    height: 15,
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Khondakar Morshed Afridi',
+                          style: getDefaultFontStyle.copyWith(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                          maxLines: 2,
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          '1820461',
+                          style: getDefaultFontStyle.copyWith(
+                            fontSize: 15,
+                          ),
+                          maxLines: 2,
+                        ),
+                      ],
+                    ),
                   ),
+                  SizedBox(
+                    width: 50,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          // color: customBlack,
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: customBlack.withOpacity(.5),
+                          ),
+                        ),
+                        child: Icon(
+                          FontAwesomeIcons.message,
+                          size: 15,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          // color: customBlack,
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: customBlack.withOpacity(.5),
+                          ),
+                        ),
+                        child: Icon(
+                          FontAwesomeIcons.phone,
+                          size: 15,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            GetCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Column(
+                children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -57,7 +129,7 @@ class _TripDetailsState extends State<TripDetails> {
                     ],
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Row(
                     children: [
@@ -137,18 +209,6 @@ class _TripDetailsState extends State<TripDetails> {
                                 )
                               ],
                             ),
-                            // Row(
-                            //   children: [
-                            //     SizedBox(
-                            //       width: 6,
-                            //     ),
-                            //     Container(
-                            //       height: 5,
-                            //       width: 2,
-                            //       color: customBlack,
-                            //     ),
-                            //   ],
-                            // ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -205,17 +265,45 @@ class _TripDetailsState extends State<TripDetails> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 15,
+                ],
+              ),
+            ),
+            GetCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Fare',
+                    style: getDefaultFontStyle.copyWith(
+                        fontWeight: FontWeight.w700, fontSize: 14),
                   ),
                   Container(
-                    height: 1,
-                    width: Get.width,
-                    color: customBlack.withOpacity(.1),
+                    height: 30,
+                    // width: 30,
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    decoration: BoxDecoration(
+                      color: customBlack,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "120 TK",
+                      style: getDefaultFontStyle.copyWith(
+                          color: customWhite, fontWeight: FontWeight.bold),
+                    ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                ],
+              ),
+            ),
+            GetCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -227,7 +315,7 @@ class _TripDetailsState extends State<TripDetails> {
                     ],
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -268,17 +356,14 @@ class _TripDetailsState extends State<TripDetails> {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 1,
-                    width: Get.width,
-                    color: customBlack.withOpacity(.1),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
+                ],
+              ),
+            ),
+            GetCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Column(
+                children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -290,7 +375,7 @@ class _TripDetailsState extends State<TripDetails> {
                     ],
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -316,25 +401,6 @@ class _TripDetailsState extends State<TripDetails> {
                       ),
                       Row(
                         children: [
-                          // InkWell(
-                          //   onTap: () {},
-                          //   child: Container(
-                          //     height: 30,
-                          //     width: 30,
-                          //     decoration: BoxDecoration(
-                          //       color: customBlack.withOpacity(.2),
-                          //       borderRadius: BorderRadius.circular(5),
-                          //     ),
-                          //     alignment: Alignment.center,
-                          //     child: Icon(
-                          //       FontAwesomeIcons.minus,
-                          //       size: 12,
-                          //     ),
-                          //   ),
-                          // ),
-                          // SizedBox(
-                          //   width: 5,
-                          // ),
                           Container(
                             height: 30,
                             width: 30,
@@ -350,31 +416,12 @@ class _TripDetailsState extends State<TripDetails> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          // SizedBox(
-                          //   width: 5,
-                          // ),
-                          // InkWell(
-                          //   onTap: () {},
-                          //   child: Container(
-                          //     height: 30,
-                          //     width: 30,
-                          //     decoration: BoxDecoration(
-                          //       color: customBlack.withOpacity(.2),
-                          //       borderRadius: BorderRadius.circular(5),
-                          //     ),
-                          //     alignment: Alignment.center,
-                          //     child: Icon(
-                          //       FontAwesomeIcons.plus,
-                          //       size: 12,
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -400,25 +447,6 @@ class _TripDetailsState extends State<TripDetails> {
                       ),
                       Row(
                         children: [
-                          // InkWell(
-                          //   onTap: () {},
-                          //   child: Container(
-                          //     height: 30,
-                          //     width: 30,
-                          //     decoration: BoxDecoration(
-                          //       color: customBlack.withOpacity(.2),
-                          //       borderRadius: BorderRadius.circular(5),
-                          //     ),
-                          //     alignment: Alignment.center,
-                          //     child: Icon(
-                          //       FontAwesomeIcons.minus,
-                          //       size: 12,
-                          //     ),
-                          //   ),
-                          // ),
-                          // SizedBox(
-                          //   width: 5,
-                          // ),
                           Container(
                             height: 30,
                             // width: 30,
@@ -435,170 +463,15 @@ class _TripDetailsState extends State<TripDetails> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          // SizedBox(
-                          //   width: 5,
-                          // ),
-                          // InkWell(
-                          //   onTap: () {},
-                          //   child: Container(
-                          //     height: 30,
-                          //     width: 30,
-                          //     decoration: BoxDecoration(
-                          //       color: customBlack.withOpacity(.2),
-                          //       borderRadius: BorderRadius.circular(5),
-                          //     ),
-                          //     alignment: Alignment.center,
-                          //     child: Icon(
-                          //       FontAwesomeIcons.plus,
-                          //       size: 12,
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 1,
-                    width: Get.width,
-                    color: customBlack.withOpacity(.1),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Fare',
-                        style: getDefaultFontStyle.copyWith(
-                            fontWeight: FontWeight.w700, fontSize: 14),
-                      ),
-                      Container(
-                        height: 30,
-                        // width: 30,
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        decoration: BoxDecoration(
-                          color: customBlack,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "120 TK",
-                          style: getDefaultFontStyle.copyWith(
-                              color: customWhite, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 1,
-                    width: Get.width,
-                    color: customBlack.withOpacity(.1),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Khondakar Morshed Afridi',
-                              style: getDefaultFontStyle.copyWith(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                              maxLines: 2,
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              '1820461',
-                              style: getDefaultFontStyle.copyWith(
-                                fontSize: 15,
-                              ),
-                              maxLines: 2,
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 50,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              // color: customBlack,
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                color: customBlack.withOpacity(.5),
-                              ),
-                            ),
-                            child: Icon(
-                              FontAwesomeIcons.message,
-                              size: 15,
-                            ),
-                          ),
-                          // SizedBox(
-                          //   width: 10,
-                          // ),
-                          // Expanded(
-                          //   child: Container(
-                          //     height: 50,
-                          //     decoration: BoxDecoration(
-                          //       color: customBlack,
-                          //       borderRadius: BorderRadius.circular(5),
-                          //     ),
-                          //     alignment: Alignment.center,
-                          //     child: Text(
-                          //       'Khondakar Afridi',
-                          //       style: getDefaultFontStyle.copyWith(
-                          //           color: customWhite,
-                          //           fontWeight: FontWeight.bold,
-                          //           fontSize: 15),
-                          //     ),
-                          //   ),
-                          // ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              // color: customBlack,
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(
-                                color: customBlack.withOpacity(.5),
-                              ),
-                            ),
-                            child: Icon(
-                              FontAwesomeIcons.phone,
-                              size: 15,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 25,
-                  )
                 ],
               ),
+            ),
+            SizedBox(
+              height: 25,
             ),
           ],
         ),
