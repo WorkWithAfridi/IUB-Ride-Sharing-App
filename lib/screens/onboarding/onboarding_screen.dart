@@ -103,6 +103,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             child: Text(
                               pageIndex != 0 ? "Back" : "Skip",
                               style: getDefaultFontStyle.copyWith(
+                                  color: pageIndex != 0
+                                      ? customBlack
+                                      : primaryColor,
                                   fontWeight: pageIndex == 0
                                       ? FontWeight.bold
                                       : FontWeight.normal),
@@ -170,6 +173,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             child: Text(
                               pageIndex == 2 ? "Get started" : "Next",
                               style: getDefaultFontStyle.copyWith(
+                                  color: pageIndex != 2
+                                      ? customBlack
+                                      : primaryColor,
                                   fontWeight: pageIndex == 2
                                       ? FontWeight.bold
                                       : FontWeight.normal),

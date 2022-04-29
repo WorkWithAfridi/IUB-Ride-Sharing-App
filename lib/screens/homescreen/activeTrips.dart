@@ -41,12 +41,12 @@ class _ActiveTripsState extends State<ActiveTrips> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Ongoing Trip",
+          "Ongoing Trips",
           style: getDefaultFontStyle,
         ),
         centerTitle: true,
         leading: GetBackButton(),
-        elevation: 0,
+        elevation: 5,
       ),
       body: Container(
         // padding: getGlobalPadding(),
@@ -58,6 +58,9 @@ class _ActiveTripsState extends State<ActiveTrips> {
                 physics: BouncingScrollPhysics(),
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: 5,
+                    ),
                     Padding(
                       padding: getGlobalPadding(),
                       child: SizedBox(
@@ -67,7 +70,7 @@ class _ActiveTripsState extends State<ActiveTrips> {
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
                     Padding(
                       padding: getGlobalPadding(),
@@ -75,7 +78,7 @@ class _ActiveTripsState extends State<ActiveTrips> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            'Ongoing trips',
+                            'Active trips on route to IUB',
                             style: getDefaultFontStyle.copyWith(
                                 fontWeight: FontWeight.w700, fontSize: 14),
                           ),
@@ -83,7 +86,7 @@ class _ActiveTripsState extends State<ActiveTrips> {
                       ),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 2,
                     ),
                     Padding(
                       padding: getGlobalPadding(),

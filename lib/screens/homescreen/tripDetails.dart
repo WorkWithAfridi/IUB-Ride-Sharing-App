@@ -25,7 +25,7 @@ class _TripDetailsState extends State<TripDetails> {
         ),
         centerTitle: true,
         leading: GetBackButton(),
-        elevation: 0,
+        elevation: 5,
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -33,6 +33,9 @@ class _TripDetailsState extends State<TripDetails> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 5,
+            ),
             Container(
               height: Get.height / 4,
               padding: getGlobalPadding(),
@@ -46,6 +49,37 @@ class _TripDetailsState extends State<TripDetails> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        height: 45,
+                        width: 45,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(45),
+                          color: primaryColor,
+                        ),
+                      ),
+                      Container(
+                        height: 43,
+                        width: 43,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(43),
+                          color: primaryColor,
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(43),
+                          child: Image.network(
+                            "https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
                   Expanded(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -70,8 +104,40 @@ class _TripDetailsState extends State<TripDetails> {
                       ],
                     ),
                   ),
+                ],
+              ),
+            ),
+            GetHorizontalCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {},
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: primaryColor,
+                          // border: Border.all(
+                          //     color: customBlack.withOpacity(.5)),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Confirm ride',
+                            style: getDefaultFontStyle.copyWith(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   SizedBox(
-                    width: 50,
+                    width: 10,
                   ),
                   Row(
                     children: [
@@ -111,31 +177,6 @@ class _TripDetailsState extends State<TripDetails> {
                     ],
                   ),
                 ],
-              ),
-            ),
-            GetHorizontalCustomDivider(),
-            Padding(
-              padding: getGlobalPadding(),
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 50,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: customBlack.withOpacity(.5)),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Book a seat',
-                      style: getDefaultFontStyle.copyWith(
-                        color: customBlack,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                ),
               ),
             ),
             GetHorizontalCustomDivider(),

@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: 20,
                                     child: Checkbox(
                                       value: keepUserLoggedIn,
-                                      activeColor: customBlack,
+                                      activeColor: primaryColor,
                                       onChanged: (value) {
                                         setState(() {
                                           keepUserLoggedIn = value!;
@@ -169,9 +169,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 height: 50,
                                 width: Get.width,
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
+                                  color: primaryColor,
+                                  // border: Border.all(
+                                  //     color: customBlack.withOpacity(.5)),
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Center(
@@ -180,7 +180,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       : Text(
                                           'Sign in',
                                           style: getDefaultFontStyle.copyWith(
-                                            color: customBlack,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
                                             fontSize: 14,
                                           ),
                                         ),
@@ -241,10 +242,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                   style: getDefaultFontStyle,
                                 ),
                                 Text(
-                                  "Sign up.",
+                                  " Sign up.",
                                   style: getDefaultFontStyle.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                      fontWeight: FontWeight.bold,
+                                      color: primaryColor),
                                 ),
                               ],
                             ),

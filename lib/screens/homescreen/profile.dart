@@ -128,15 +128,17 @@ class Profile extends StatelessWidget {
                       height: 50,
                       width: Get.width,
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: customBlack.withOpacity(.5)),
+                        color: primaryColor,
+                        // border: Border.all(
+                        //     color: customBlack.withOpacity(.5)),
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Center(
                         child: Text(
                           'Sign out',
                           style: getDefaultFontStyle.copyWith(
-                            color: customBlack,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
                             fontSize: 14,
                           ),
                         ),

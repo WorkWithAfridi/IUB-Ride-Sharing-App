@@ -12,7 +12,7 @@ class AppTheme {
   }
 }
 
-Color primaryColor = Color(0xffFFDB15);
+Color primaryColor = Color(0xffF03B46);
 Color customBlack = Color(0xff242526);
 Color customWhite = Color(0xffF9F9FB);
 Color customRed = Color(0xffE4021B);

@@ -71,7 +71,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   Text(
                     "BY \nK Y O T O",
                     style: getHandWritingFontStyle.copyWith(
-                      color: Colors.yellow,
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                     ),
@@ -89,6 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
   triggerSplashScreenEvent() async {
     var isFirstBoot = await box.read("isFirstBoot");
 
+    isFirstBoot = null;
     Future.delayed(Duration(seconds: 4)).then((_) {
       if (isFirstBoot == null) {
         box.write("isFirstBoot", false);

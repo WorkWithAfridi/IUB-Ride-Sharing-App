@@ -42,7 +42,7 @@ class Routes {
     GetPage(
       name: getIntroductionRoute,
       page: () => IntroductionScreen(),
-      transition: Transition.fadeIn,
+      transition: Transition.rightToLeft,
     ),
     GetPage(
       name: getProfileRoute,

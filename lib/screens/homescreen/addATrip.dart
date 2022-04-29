@@ -32,7 +32,7 @@ class _CreateATripState extends State<CreateATrip> {
         ),
         centerTitle: true,
         leading: GetBackButton(),
-        elevation: 0,
+        elevation: 5,
       ),
       body: Container(
         color: customWhite,
@@ -49,6 +49,9 @@ class _CreateATripState extends State<CreateATrip> {
             children: [
               Column(
                 children: [
+                  SizedBox(
+                    height: 5,
+                  ),
                   Padding(
                     padding: getGlobalPadding(),
                     child: Row(
@@ -275,8 +278,7 @@ class _CreateATripState extends State<CreateATrip> {
                         ),
                         GetCustomTextField(
                           textEditingController: descriptionTEC,
-                          hintText:
-                          "What routes are you planning on taking?",
+                          hintText: "What routes are you planning on taking?",
                           textInputType: TextInputType.text,
                           maxLines: 4,
                         ),
@@ -308,7 +310,7 @@ class _CreateATripState extends State<CreateATrip> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width:20,
+                          width: 20,
                         ),
                         Column(
                           children: [
@@ -770,15 +772,17 @@ class _CreateATripState extends State<CreateATrip> {
                     height: 50,
                     width: Get.width,
                     decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: customBlack.withOpacity(.5)),
+                      color: primaryColor,
+                      // border: Border.all(
+                      //     color: customBlack.withOpacity(.5)),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Center(
                       child: Text(
                         'Confirm',
                         style: getDefaultFontStyle.copyWith(
-                          color: customBlack,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                           fontSize: 14,
                         ),
                       ),
