@@ -113,7 +113,32 @@ class _TripDetailsState extends State<TripDetails> {
                 ],
               ),
             ),
-            GetCustomDivider(),
+            GetHorizontalCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 50,
+                  width: Get.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: customBlack.withOpacity(.5)),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Book a seat',
+                      style: getDefaultFontStyle.copyWith(
+                        color: customBlack,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            GetHorizontalCustomDivider(),
             Padding(
               padding: getGlobalPadding(),
               child: Column(
@@ -268,7 +293,7 @@ class _TripDetailsState extends State<TripDetails> {
                 ],
               ),
             ),
-            GetCustomDivider(),
+            GetHorizontalCustomDivider(),
             Padding(
               padding: getGlobalPadding(),
               child: Row(
@@ -297,7 +322,7 @@ class _TripDetailsState extends State<TripDetails> {
                 ],
               ),
             ),
-            GetCustomDivider(),
+            GetHorizontalCustomDivider(),
             Padding(
               padding: getGlobalPadding(),
               child: Column(
@@ -359,7 +384,7 @@ class _TripDetailsState extends State<TripDetails> {
                 ],
               ),
             ),
-            GetCustomDivider(),
+            GetHorizontalCustomDivider(),
             Padding(
               padding: getGlobalPadding(),
               child: Column(

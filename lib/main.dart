@@ -1,5 +1,5 @@
 import 'package:bnans_iub/routes/routes.dart';
-import 'package:bnans_iub/screens/homescreen/home_screen.dart';
+import 'package:bnans_iub/screens/homescreen/activeTrips.dart';
 import 'package:bnans_iub/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

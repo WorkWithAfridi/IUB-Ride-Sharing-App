@@ -11,7 +11,7 @@ showCustomSnackbar(String title, String message) {
     borderWidth: 1,
     borderColor: customBlack,
     snackPosition: SnackPosition.TOP,
-    margin: EdgeInsets.symmetric(vertical: 70, horizontal: 15),
+    margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
     duration: Duration(seconds: 3),
     titleText: Text(
       title,

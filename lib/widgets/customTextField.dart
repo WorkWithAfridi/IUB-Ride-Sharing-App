@@ -76,7 +76,7 @@ class GetCustomTextField extends StatelessWidget {
     );
     return TextField(
       style: getDefaultFontStyle,
-      cursorColor: Colors.white54,
+      cursorColor: customBlack,
       controller: textEditingController,
       maxLines: maxLines,
       decoration: InputDecoration(

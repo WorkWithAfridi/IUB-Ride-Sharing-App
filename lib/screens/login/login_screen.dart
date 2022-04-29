@@ -169,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 height: 50,
                                 width: Get.width,
                                 decoration: BoxDecoration(
-                                  color: primaryColor,
+                                  color: Colors.white,
                                   border: Border.all(
                                       color: customBlack.withOpacity(.5)),
                                   borderRadius: BorderRadius.circular(5),
@@ -179,39 +179,39 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ? GetCustomCircularProgressIndicator()
                                       : Text(
                                           'Sign in',
-                                          style: getMarkerFontStyle.copyWith(
-                                              fontWeight: FontWeight.bold,
-                                              color: customBlack,
-                                              fontSize: 20),
+                                          style: getDefaultFontStyle.copyWith(
+                                            color: customBlack,
+                                            fontSize: 14,
+                                          ),
                                         ),
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            InkWell(
-                              onTap: () async {},
-                              child: Container(
-                                height: 50,
-                                width: Get.width,
-                                decoration: BoxDecoration(
-                                  color: customBlack,
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Sign up',
-                                    style: getMarkerFontStyle.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: primaryColor,
-                                        fontSize: 20),
-                                  ),
-                                ),
-                              ),
-                            ),
+                            // SizedBox(
+                            //   height: 8,
+                            // ),
+                            // InkWell(
+                            //   onTap: () async {},
+                            //   child: Container(
+                            //     height: 50,
+                            //     width: Get.width,
+                            //     decoration: BoxDecoration(
+                            //       color: customBlack,
+                            //       border: Border.all(
+                            //           color: customBlack.withOpacity(.5)),
+                            //       borderRadius: BorderRadius.circular(5),
+                            //     ),
+                            //     child: Center(
+                            //       child: Text(
+                            //         'Sign up',
+                            //         style: getMarkerFontStyle.copyWith(
+                            //             fontWeight: FontWeight.bold,
+                            //             color: primaryColor,
+                            //             fontSize: 20),
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
                             SizedBox(
                               height: 8,
                             ),
@@ -224,6 +224,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                                 Text(
                                   "Get help logging in.",
+                                  style: getDefaultFontStyle.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Don't have an account?",
+                                  style: getDefaultFontStyle,
+                                ),
+                                Text(
+                                  "Sign up.",
                                   style: getDefaultFontStyle.copyWith(
                                     fontWeight: FontWeight.bold,
                                   ),

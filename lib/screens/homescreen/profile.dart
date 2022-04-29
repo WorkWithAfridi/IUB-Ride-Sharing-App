@@ -13,11 +13,12 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Khondakar Afridi",
-          style: getMarkerFontStyle.copyWith(fontSize: 15, color: customWhite),
+          "Profile",
+          style: getDefaultFontStyle,
         ),
         centerTitle: true,
-        leading: GetBackButton()
+        leading: GetBackButton(),
+        elevation: 0,
       ),
       body: Stack(
         children: [
@@ -48,7 +49,7 @@ class Profile extends StatelessWidget {
                       width: 110,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(110),
-                        color: primaryColor,
+                        color: Colors.white,
                       ),
                     ),
                     Container(
@@ -117,27 +118,27 @@ class Profile extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
-                InkWell(
-                  onTap: () async {
-                    Get.offAllNamed(Routes.getLoginRoute);
-                  },
-                  child: Padding(
-                    padding: getGlobalPadding(),
+                Padding(
+                  padding: getGlobalPadding(),
+                  child: InkWell(
+                    onTap: () async {
+                      Get.offAllNamed(Routes.getLoginRoute);
+                    },
                     child: Container(
                       height: 50,
                       width: Get.width,
                       decoration: BoxDecoration(
-                        color: primaryColor,
-                        border: Border.all(color: primaryColor.withOpacity(.5)),
+                        color: Colors.white,
+                        border: Border.all(color: customBlack.withOpacity(.5)),
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Center(
                         child: Text(
                           'Sign out',
-                          style: getMarkerFontStyle.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: customBlack,
-                              fontSize: 20),
+                          style: getDefaultFontStyle.copyWith(
+                            color: customBlack,
+                            fontSize: 14,
+                          ),
                         ),
                       ),
                     ),

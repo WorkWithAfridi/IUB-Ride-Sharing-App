@@ -1,5 +1,5 @@
 import 'package:bnans_iub/screens/homescreen/addATrip.dart';
-import 'package:bnans_iub/screens/homescreen/home_screen.dart';
+import 'package:bnans_iub/screens/homescreen/activeTrips.dart';
 import 'package:bnans_iub/screens/homescreen/profile.dart';
 import 'package:bnans_iub/screens/homescreen/travelling_to.dart';
 import 'package:bnans_iub/screens/homescreen/tripDetails.dart';
@@ -36,7 +36,7 @@ class Routes {
     ),
     GetPage(
       name: getHomescreenRoute,
-      page: () => HomeScreen(),
+      page: () => ActiveTrips(),
       transition: Transition.rightToLeft,
     ),
     GetPage(

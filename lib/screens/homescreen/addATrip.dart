@@ -255,7 +255,7 @@ class _CreateATripState extends State<CreateATrip> {
                       ],
                     ),
                   ),
-                  GetCustomDivider(),
+                  GetHorizontalCustomDivider(),
                   Padding(
                     padding: getGlobalPadding(),
                     child: Column(
@@ -283,7 +283,7 @@ class _CreateATripState extends State<CreateATrip> {
                       ],
                     ),
                   ),
-                  GetCustomDivider(),
+                  GetHorizontalCustomDivider(),
                   Padding(
                     padding: getGlobalPadding(),
                     child: Row(
@@ -305,9 +305,10 @@ class _CreateATripState extends State<CreateATrip> {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          width: 10,
+                          width:20,
                         ),
                         Column(
                           children: [
@@ -322,14 +323,6 @@ class _CreateATripState extends State<CreateATrip> {
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    child: Image.asset(
-                                      'assets/images/maps/map (1).jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -370,14 +363,6 @@ class _CreateATripState extends State<CreateATrip> {
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    child: Image.asset(
-                                      'assets/images/maps/map (1).jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -418,14 +403,6 @@ class _CreateATripState extends State<CreateATrip> {
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    child: Image.asset(
-                                      'assets/images/maps/map (1).jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -466,14 +443,6 @@ class _CreateATripState extends State<CreateATrip> {
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    child: Image.asset(
-                                      'assets/images/maps/map (1).jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -514,14 +483,6 @@ class _CreateATripState extends State<CreateATrip> {
                               child: Stack(
                                 alignment: Alignment.center,
                                 children: [
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    child: Image.asset(
-                                      'assets/images/maps/map (1).jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
                                   Padding(
                                     padding: EdgeInsets.all(10),
                                     child: Image.asset(
@@ -547,6 +508,46 @@ class _CreateATripState extends State<CreateATrip> {
                           ],
                         ),
                         SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                    color: customBlack.withOpacity(.5)),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Stack(
+                                alignment: Alignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Image.asset(
+                                        'assets/images/maps/privateCar.png'),
+                                  ),
+                                  Container(
+                                    height: Get.height,
+                                    width: Get.width,
+                                    color: Colors.grey.withOpacity(.8),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'CNG',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
                           width: 20,
                         ),
                       ],
@@ -555,7 +556,7 @@ class _CreateATripState extends State<CreateATrip> {
                   SizedBox(
                     height: 15,
                   ),
-                  GetCustomDivider(),
+                  GetHorizontalCustomDivider(),
                   Padding(
                     padding: getGlobalPadding(),
                     child: Column(
@@ -730,7 +731,7 @@ class _CreateATripState extends State<CreateATrip> {
                   ),
                 ],
               ),
-              GetCustomDivider(),
+              GetHorizontalCustomDivider(),
               Padding(
                 padding: getGlobalPadding(),
                 child: Column(
