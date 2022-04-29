@@ -536,6 +536,28 @@ class _TripDetailsState extends State<TripDetails> {
                 ],
               ),
             ),
+            GetHorizontalCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Description',
+                    style: getDefaultFontStyle.copyWith(
+                        fontWeight: FontWeight.w700, fontSize: 14),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+                    style: getDefaultFontStyle,
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
               height: 25,
             ),

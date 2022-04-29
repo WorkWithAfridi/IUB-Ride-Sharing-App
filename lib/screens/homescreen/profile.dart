@@ -18,7 +18,7 @@ class Profile extends StatelessWidget {
         ),
         centerTitle: true,
         leading: GetBackButton(),
-        elevation: 0,
+        elevation: 5,
       ),
       body: Stack(
         children: [
