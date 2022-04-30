@@ -36,12 +36,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-      AppBar(
+      appBar: AppBar(
         title: Text(
           "BNANS",
-          style:
-          getMarkerFontStyle.copyWith(color: customBlack),
+          style: getMarkerFontStyle.copyWith(color: customBlack),
         ),
         centerTitle: true,
         elevation: 5,
@@ -355,8 +353,9 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           width: Get.width,
                           decoration: BoxDecoration(
                             color: primaryColor,
-                            // border: Border.all(
-                            //     color: customBlack.withOpacity(.5)),
+                            border: Border.all(
+                              color: customBlack.withOpacity(.3),
+                            ),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: Center(
@@ -394,8 +393,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           width: Get.width,
                           decoration: BoxDecoration(
                             color: customBlack,
-                            // border: Border.all(
-                            //     color: customBlack.withOpacity(.5)),
+                            border: Border.all(color: customBlack.withOpacity(.3)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: Center(
@@ -420,8 +418,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           width: Get.width,
                           decoration: BoxDecoration(
                             color: customBlack,
-                            // border: Border.all(
-                            //     color: customBlack.withOpacity(.5)),
+                            border: Border.all(color: customBlack.withOpacity(.3)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: Center(

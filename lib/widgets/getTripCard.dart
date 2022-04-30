@@ -28,84 +28,94 @@ class _GetTripCardState extends State<GetTripCard> {
           // height: 100,
           decoration: BoxDecoration(
             // color: primaryColor.withOpacity(.2),
-            border: Border.all(color: customBlack.withOpacity(.5)),
+            border: Border.all(color: customBlack.withOpacity(.3)),
             borderRadius: BorderRadius.circular(5),
           ),
-          // padding: EdgeInsets.only(left: 5),
           width: Get.width,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              height: 35,
-                              width: 35,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(35),
-                                color: primaryColor,
-                              ),
-                            ),
-                            Container(
-                              height: 33,
-                              width: 33,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(33),
-                                color: primaryColor,
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(33),
-                                child: Image.network(
-                                  "https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-                                  fit: BoxFit.cover,
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Container(
+                                height: 35,
+                                width: 35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(35),
+                                  color: primaryColor,
                                 ),
                               ),
-                            ),
-                          ],
+                              Container(
+                                height: 33,
+                                width: 33,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(33),
+                                  color: primaryColor,
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(33),
+                                  child: Image.network(
+                                    "https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Khondakar Afridi",
+                                style: getDefaultFontStyle.copyWith(
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
+                                "1820461",
+                                style: getDefaultFontStyle,
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Container(
+                          height: 35,
+                          width: 35,
+                          alignment: Alignment.center,
+                          child: Icon(
+                            FontAwesomeIcons.ellipsisVertical,
+                            size: 15,
+                          ),
                         ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Khondakar Afridi",
-                              style: getDefaultFontStyle,
-                            ),
-                            Text(
-                              "1820461",
-                              style: getDefaultFontStyle,
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      FontAwesomeIcons.ellipsisVertical,
-                      size: 15,
-                    ),
-                  )
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
                   children: [
+                    SizedBox(
+                      width: 8,
+                    ),
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -219,10 +229,10 @@ class _GetTripCardState extends State<GetTripCard> {
                     ),
                   ],
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
                   children: [
                     Row(
                       children: [
@@ -270,9 +280,9 @@ class _GetTripCardState extends State<GetTripCard> {
                       ],
                     ),
                   ],
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

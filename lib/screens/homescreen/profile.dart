@@ -129,8 +129,7 @@ class Profile extends StatelessWidget {
                       width: Get.width,
                       decoration: BoxDecoration(
                         color: primaryColor,
-                        // border: Border.all(
-                        //     color: customBlack.withOpacity(.5)),
+                        border: Border.all(color: customBlack.withOpacity(.3)),
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: Center(
