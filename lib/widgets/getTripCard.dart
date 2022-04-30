@@ -95,6 +95,8 @@ class _GetTripCardState extends State<GetTripCard> {
                       ),
                       InkWell(
                         onTap: () {},
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         child: Container(
                           height: 35,
                           width: 35,
@@ -109,7 +111,7 @@ class _GetTripCardState extends State<GetTripCard> {
                   ),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 Row(
                   children: [

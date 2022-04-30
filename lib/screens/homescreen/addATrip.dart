@@ -18,8 +18,9 @@ class CreateATrip extends StatefulWidget {
 class _CreateATripState extends State<CreateATrip> {
   TextEditingController FromTEC = TextEditingController();
   TextEditingController ToTEC = TextEditingController();
-  TextEditingController descriptionTEC = TextEditingController();
+  TextEditingController DescriptionTEC = TextEditingController();
   TextEditingController FareTEC = TextEditingController();
+  TextEditingController LisencePlateTEC = TextEditingController();
   int numberOfSeatsAvailable = 0;
 
   @override
@@ -277,7 +278,7 @@ class _CreateATripState extends State<CreateATrip> {
                           height: 10,
                         ),
                         GetCustomTextField(
-                          textEditingController: descriptionTEC,
+                          textEditingController: DescriptionTEC,
                           hintText: "What routes are you planning on taking?",
                           textInputType: TextInputType.text,
                           maxLines: 4,
@@ -315,8 +316,8 @@ class _CreateATripState extends State<CreateATrip> {
                         Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: Get.width/5,
+                              width: Get.width/5,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: customBlack.withOpacity(.5)),
@@ -355,8 +356,8 @@ class _CreateATripState extends State<CreateATrip> {
                         Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: Get.width/5,
+                              width: Get.width/5,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: customBlack.withOpacity(.5)),
@@ -395,8 +396,8 @@ class _CreateATripState extends State<CreateATrip> {
                         Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: Get.width/5,
+                              width: Get.width/5,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: customBlack.withOpacity(.5)),
@@ -435,8 +436,8 @@ class _CreateATripState extends State<CreateATrip> {
                         Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: Get.width/5,
+                              width: Get.width/5,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: customBlack.withOpacity(.5)),
@@ -475,8 +476,8 @@ class _CreateATripState extends State<CreateATrip> {
                         Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: Get.width/5,
+                              width: Get.width/5,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: customBlack.withOpacity(.5)),
@@ -515,8 +516,8 @@ class _CreateATripState extends State<CreateATrip> {
                         Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: Get.width/5,
+                              width: Get.width/5,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                     color: customBlack.withOpacity(.5)),
@@ -761,8 +762,36 @@ class _CreateATripState extends State<CreateATrip> {
                   ],
                 ),
               ),
+              GetHorizontalCustomDivider(),
+              Padding(
+                padding: getGlobalPadding(),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'License/ Number number',
+                          style: getDefaultFontStyle.copyWith(
+                              fontWeight: FontWeight.w700, fontSize: 14),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GetCustomTextField(
+                      textEditingController: LisencePlateTEC,
+                      hintText:
+                          "Enter your vehicles license/ number number",
+                      textInputType: TextInputType.number,
+                      maxLines: 1,
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),

@@ -163,7 +163,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           });
                         },
                         child: Container(
-                          height: 50,
+                          height: Get.height/15,
                           width: double.infinity,
                           alignment: Alignment.centerLeft,
                           padding: getGlobalPadding(),
@@ -177,12 +177,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          Get.toNamed(Routes.getEmergencyContracts)?.then((value) {
+                          Get.toNamed(Routes.getEmergencyContracts)
+                              ?.then((value) {
                             Get.back();
                           });
                         },
                         child: Container(
-                          height: 50,
+                          height: Get.height/15,
                           width: double.infinity,
                           alignment: Alignment.centerLeft,
                           padding: getGlobalPadding(),
@@ -198,12 +199,17 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                   ),
                 ),
               ),
+              Container(
+                height: 1,
+                width: Get.width,
+                color: customBlack.withOpacity(.1),
+              ),
               InkWell(
                 onTap: () {
                   Get.offAllNamed(Routes.getLoginRoute);
                 },
                 child: Container(
-                  height: 50,
+                  height: Get.height/15,
                   width: double.infinity,
                   alignment: Alignment.centerLeft,
                   padding: getGlobalPadding(),
@@ -254,8 +260,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: 80,
-                                  width: 80,
+                                  height: Get.width/5,
+                                  width: Get.width/5,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -291,8 +297,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: 80,
-                                  width: 80,
+                                  height: Get.width/5,
+                                  width: Get.width/5,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -324,8 +330,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Column(
                             children: [
                               Container(
-                                height: 80,
-                                width: 80,
+                                height: Get.width/5,
+                                width: Get.width/5,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
@@ -355,8 +361,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Column(
                             children: [
                               Container(
-                                height: 80,
-                                width: 80,
+                                height: Get.width/5,
+                                width: Get.width/5,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),

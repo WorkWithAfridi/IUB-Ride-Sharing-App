@@ -395,8 +395,8 @@ class _TripDetailsState extends State<TripDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 60,
-                        width: 60,
+                        height: Get.width/5,
+                        width: Get.width/5,
                         decoration: BoxDecoration(
                           border:
                               Border.all(color: customBlack.withOpacity(.5)),
@@ -427,6 +427,41 @@ class _TripDetailsState extends State<TripDetails> {
                       Text(
                         'Bike',
                         style: getDefaultFontStyle,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            GetHorizontalCustomDivider(),
+            Padding(
+              padding: getGlobalPadding(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        'License/ Number plate',
+                        style: getDefaultFontStyle.copyWith(
+                            fontWeight: FontWeight.w700, fontSize: 14),
+                      ),
+                      Expanded(child: Container()),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: customBlack,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        alignment: Alignment.center,
+                        child: Text(
+                          "ABC-XYZ-123",
+                          style: getDefaultFontStyle.copyWith(
+                              color: customWhite, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   ),
