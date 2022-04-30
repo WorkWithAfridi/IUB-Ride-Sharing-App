@@ -70,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              'Bnans',
+                              appName,
                               style: getMarkerFontStyle.copyWith(
                                   color: customBlack, height: .8),
                             ),

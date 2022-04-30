@@ -10,9 +10,9 @@ showCustomSnackbar(String title, String message) {
     borderRadius: 5,
     borderWidth: 1,
     borderColor: customBlack,
-    snackPosition: SnackPosition.TOP,
+    snackPosition: SnackPosition.BOTTOM,
     margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-    duration: Duration(seconds: 3),
+    duration: Duration(seconds: 2),
     titleText: Text(
       title,
       style: getMarkerFontStyle.copyWith(

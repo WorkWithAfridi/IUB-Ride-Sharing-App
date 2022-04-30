@@ -1,4 +1,4 @@
-import 'package:bnans_iub/functions/randomColor.dart';
+import 'package:bnans_iub/functions/random_color_picker.dart';
 import 'package:bnans_iub/routes/routes.dart';
 import 'package:bnans_iub/widgets/divider.dart';
 import 'package:flutter/material.dart';

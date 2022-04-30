@@ -1,9 +1,12 @@
 import 'package:bnans_iub/constants/app_theme.dart';
+import 'package:bnans_iub/functions/url_launcher_functions.dart';
+import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:bnans_iub/widgets/divider.dart';
 import 'package:bnans_iub/widgets/google_maps.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../routes/routes.dart';
 import '../../widgets/getLoadingAnimation.dart';
@@ -20,7 +23,6 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
@@ -33,54 +35,192 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     });
   }
 
+  final GlobalKey<ScaffoldState> IntroductionPageScaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: IntroductionPageScaffoldKey,
       appBar: AppBar(
         title: Text(
-          "BNANS",
+          appName,
           style: getMarkerFontStyle.copyWith(color: customBlack),
         ),
         centerTitle: true,
         elevation: 5,
-        actions: [
-          InkWell(
+        leading: InkWell(
             onTap: () {
-              Get.toNamed(Routes.getProfileRoute);
+              IntroductionPageScaffoldKey.currentState!.openDrawer();
             },
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  height: 30,
-                  width: 30,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: customBlack,
+            child: Icon(
+              FontAwesomeIcons.bars,
+              size: 15,
+              color: customBlack,
+            )),
+        // actions: [
+        //   IconButton(
+        //     onPressed: () {},
+        //     icon: Icon(
+        //       FontAwesomeIcons.ellipsisVertical,
+        //       size: 15,
+        //       color: customBlack,
+        //     ),
+        //   )
+        // ],
+      ),
+      drawer: Drawer(
+        elevation: 5,
+        child: Container(
+          color: customWhite,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                color: Colors.pink,
+                height: Get.width / 5 + 150,
+                child: Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: Image.asset(
+                        'assets/images/backdrop.jpg',
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
+                    // Container(
+                    //   width: double.infinity,
+                    //   height: double.infinity,
+                    //   color: customBlack.withOpacity(.3),
+                    // ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppBar(
+                          elevation: 0,
+                          backgroundColor: Colors.transparent,
+                          leading: GetBackButton(),
+                        ),
+                        Padding(
+                          padding: getGlobalPadding(),
+                          child: Container(
+                            height: Get.width / 5,
+                            width: Get.width / 5,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(105),
+                              color: Colors.pink,
+                            ),
+                            child: CircleAvatar(
+                              backgroundColor: primaryColor,
+                              backgroundImage: NetworkImage(
+                                  'https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: getGlobalPadding(),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Khondakar Morshed Afridi",
+                                style: getDefaultFontStyle.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: customWhite,
+                                    fontSize: 20),
+                              ),
+                              Text(
+                                "1820461",
+                                style: getDefaultFontStyle.copyWith(
+                                  color: customWhite,
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 5,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(Routes.getProfileRoute)?.then((value) {
+                            Get.back();
+                          });
+                        },
+                        child: Container(
+                          height: 50,
+                          width: double.infinity,
+                          alignment: Alignment.centerLeft,
+                          padding: getGlobalPadding(),
+                          child: Text(
+                            "Profile",
+                            style: getDefaultFontStyle.copyWith(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(Routes.getEmergencyContracts)?.then((value) {
+                            Get.back();
+                          });
+                        },
+                        child: Container(
+                          height: 50,
+                          width: double.infinity,
+                          alignment: Alignment.centerLeft,
+                          padding: getGlobalPadding(),
+                          child: Text(
+                            "Emergency Contacts",
+                            style: getDefaultFontStyle.copyWith(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  height: 28,
-                  width: 28,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(28),
-                    color: customBlack,
-                  ),
-                  child: CircleAvatar(
-                    backgroundColor: customBlack,
-                    backgroundImage: NetworkImage(
-                        'https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.offAllNamed(Routes.getLoginRoute);
+                },
+                child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  alignment: Alignment.centerLeft,
+                  padding: getGlobalPadding(),
+                  child: Text(
+                    "Sign out",
+                    style: getDefaultFontStyle.copyWith(
+                      fontSize: 15,
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+            ],
           ),
-          SizedBox(
-            width: 17,
-          )
-        ],
+        ),
       ),
       backgroundColor: customWhite,
       body: Container(
@@ -105,6 +245,82 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           SizedBox(
                             width: 20,
                           ),
+                          InkWell(
+                            onTap: () {
+                              makePhoneCall("+8801741499768");
+                            },
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 80,
+                                  width: 80,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                        color: customBlack.withOpacity(.5)),
+                                  ),
+                                  child: Lottie.asset(
+                                      'assets/lottie_animations/sosLottieAnimation.json',
+                                      fit: BoxFit.fitWidth),
+                                ),
+                                SizedBox(
+                                  height: 3,
+                                ),
+                                //TODO: call helpline - dial 999
+                                Text(
+                                  'S.O.S.',
+                                  style: getDefaultFontStyle.copyWith(
+                                      color: customBlack.withOpacity(.7)),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              launchInBrowser(
+                                  Uri.parse("http://www.iub.edu.bd/"));
+                            },
+                            splashColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 80,
+                                  width: 80,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(15),
+                                    border: Border.all(
+                                        color: customBlack.withOpacity(.5)),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: Image.asset(
+                                      'assets/images/iub_cover.jpg',
+                                      fit: BoxFit.fitWidth,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 3,
+                                ),
+                                Text(
+                                  'Announcements',
+                                  style: getDefaultFontStyle.copyWith(
+                                      color: customBlack.withOpacity(.7)),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
                           Column(
                             children: [
                               Container(
@@ -116,76 +332,10 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                                   border: Border.all(
                                       color: customBlack.withOpacity(.5)),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/iub_cover.jpg',
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 3,
-                              ),
-                              Text(
-                                'Iub.edu.bd',
-                                style: getDefaultFontStyle.copyWith(
-                                    color: customBlack.withOpacity(.7)),
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                  color: customWhite,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/notice.png',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 3,
-                              ),
-                              Text(
-                                'Announcements',
-                                style: getDefaultFontStyle.copyWith(
-                                    color: customBlack.withOpacity(.7)),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            children: [
-                              Container(
-                                height: 80,
-                                width: 80,
-                                decoration: BoxDecoration(
-                                  color: customWhite,
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(
-                                      color: customBlack.withOpacity(.5)),
-                                ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/traffic.png',
-                                    fit: BoxFit.fitWidth,
-                                  ),
+                                child: Lottie.asset(
+                                  'assets/lottie_animations/trafficLottieAnimation.json',
+                                  repeat: false,
+                                  fit: BoxFit.fitWidth,
                                 ),
                               ),
                               SizedBox(
@@ -194,7 +344,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                               Text(
                                 'Traffic Alert',
                                 style: getDefaultFontStyle.copyWith(
-                                    color: customBlack.withOpacity(.7)),
+                                  color: customBlack.withOpacity(.7),
+                                ),
                               ),
                             ],
                           ),
@@ -207,17 +358,15 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                                 height: 80,
                                 width: 80,
                                 decoration: BoxDecoration(
-                                  color: customWhite,
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
                                   border: Border.all(
                                       color: customBlack.withOpacity(.5)),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/community.png',
-                                    fit: BoxFit.cover,
-                                  ),
+                                child: Lottie.asset(
+                                  'assets/lottie_animations/communityLottieAnimation.json',
+                                  repeat: false,
+                                  fit: BoxFit.fitWidth,
                                 ),
                               ),
                               SizedBox(
@@ -393,12 +542,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           width: Get.width,
                           decoration: BoxDecoration(
                             color: customBlack,
-                            border: Border.all(color: customBlack.withOpacity(.3)),
+                            border:
+                                Border.all(color: customBlack.withOpacity(.3)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: Center(
                             child: Text(
-                              'Ongoing trips to IUB',
+                              'To IUB',
                               style: getDefaultFontStyle.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -418,12 +568,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           width: Get.width,
                           decoration: BoxDecoration(
                             color: customBlack,
-                            border: Border.all(color: customBlack.withOpacity(.3)),
+                            border:
+                                Border.all(color: customBlack.withOpacity(.3)),
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: Center(
                             child: Text(
-                              'Outgoing trips from IUB',
+                              'From IUB',
                               style: getDefaultFontStyle.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,

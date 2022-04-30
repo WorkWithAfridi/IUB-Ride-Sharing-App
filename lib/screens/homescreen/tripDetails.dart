@@ -1,3 +1,4 @@
+import 'package:bnans_iub/functions/Url_launcher_functions.dart';
 import 'package:bnans_iub/widgets/divider.dart';
 import 'package:bnans_iub/widgets/google_maps.dart';
 import 'package:flutter/material.dart';
@@ -159,19 +160,26 @@ class _TripDetailsState extends State<TripDetails> {
                       SizedBox(
                         width: 10,
                       ),
-                      Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          // color: customBlack,
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(
-                            color: customBlack.withOpacity(.5),
+                      InkWell(
+                        onTap: () {
+                          makePhoneCall("+8801741499768");
+                        },
+                        splashColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          decoration: BoxDecoration(
+                            // color: customBlack,
+                            borderRadius: BorderRadius.circular(50),
+                            border: Border.all(
+                              color: customBlack.withOpacity(.5),
+                            ),
                           ),
-                        ),
-                        child: Icon(
-                          FontAwesomeIcons.phone,
-                          size: 15,
+                          child: Icon(
+                            FontAwesomeIcons.phone,
+                            size: 15,
+                          ),
                         ),
                       ),
                     ],

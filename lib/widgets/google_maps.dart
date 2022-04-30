@@ -30,7 +30,7 @@ class _CustomGoogleMapsWidgetState extends State<CustomGoogleMapsWidget> {
           zoomControlsEnabled: false,
           initialCameraPosition: _initialCameraPosition,
           onMapCreated: (controller) => _googleMapController = controller,
-          // trafficEnabled: true,
+          trafficEnabled: true,
           buildingsEnabled: true,
           mapType: MapType.terrain,
           myLocationEnabled: true,

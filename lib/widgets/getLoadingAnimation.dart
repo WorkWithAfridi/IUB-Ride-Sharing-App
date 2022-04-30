@@ -13,7 +13,7 @@ class GetLoadingAnimation extends StatelessWidget {
         height: 50,
         width: 50,
         child: Lottie.asset(
-            'assets/lottie_animations/lottie_loading_animation.json'),
+            'assets/lottie_animations/loadingLottieAnimation.json'),
       ),
     );
   }

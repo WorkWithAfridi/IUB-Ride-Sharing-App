@@ -4,11 +4,10 @@ class AppTheme {
   bool isDarkMode = false;
   static getLightTheme() {
     return ThemeData.light().copyWith(
-      primaryColor: customWhite,
-      backgroundColor: customWhite,
-      appBarTheme: AppBarTheme(backgroundColor: customWhite),
-      scaffoldBackgroundColor: customWhite
-    );
+        primaryColor: customWhite,
+        backgroundColor: customWhite,
+        appBarTheme: AppBarTheme(backgroundColor: customWhite),
+        scaffoldBackgroundColor: customWhite);
   }
 }
 
@@ -45,3 +44,5 @@ TextStyle getHandWritingFontStyle = TextStyle(
 getGlobalPadding() {
   return const EdgeInsets.symmetric(horizontal: 20, vertical: 5);
 }
+
+String appName = "Bananas";

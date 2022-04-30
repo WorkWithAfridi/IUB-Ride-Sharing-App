@@ -23,7 +23,6 @@ class _ActiveTripsState extends State<ActiveTrips> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getData();
   }
