@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:bnans_iub/constants/appTheme.dart';
 import 'package:bnans_iub/functions/firebaseMethods.dart';
 import 'package:bnans_iub/functions/showCustomSnackbar.dart';
@@ -855,9 +857,17 @@ class _CreateATripState extends State<CreateATrip> {
                 child: InkWell(
                   onTap: () async {
                     bool isSuccess = await FirebaseFunctions().registerTrip(
-                        username: 'RandomUser',
+                        username: "KhondakarAfirdi${Random().nextInt(1000).toString()}",
                         uid: '1121',
-                        toIub: false,
+                        toIub: ToTEC.text.contains("IUB") ||
+                                ToTEC.text.contains("iub") ||
+                                ToTEC.text.contains("Iub") ||
+                                ToTEC.text.contains("independent") ||
+                                ToTEC.text.contains("Independent") ||
+                                ToTEC.text.contains("Bangladesh") ||
+                                ToTEC.text.contains("university")
+                            ? true
+                            : false,
                         from: FromTEC.text,
                         to: ToTEC.text,
                         description: DescriptionTEC.text,

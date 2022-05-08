@@ -1,5 +1,6 @@
 import 'package:bnans_iub/constants/appTheme.dart';
 import 'package:bnans_iub/functions/launchUrl.dart';
+import 'package:bnans_iub/screens/homescreen/activeTrips.dart';
 import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:bnans_iub/widgets/divider.dart';
 import 'package:bnans_iub/widgets/google_maps.dart';
@@ -163,15 +164,26 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           });
                         },
                         child: Container(
-                          height: Get.height/15,
+                          height: Get.height / 15,
                           width: double.infinity,
                           alignment: Alignment.centerLeft,
                           padding: getGlobalPadding(),
-                          child: Text(
-                            "Profile",
-                            style: getDefaultFontStyle.copyWith(
-                              fontSize: 15,
-                            ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.user,
+                                size: 15,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                "Profile",
+                                style: getDefaultFontStyle.copyWith(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -183,15 +195,26 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           });
                         },
                         child: Container(
-                          height: Get.height/15,
+                          height: Get.height / 15,
                           width: double.infinity,
                           alignment: Alignment.centerLeft,
                           padding: getGlobalPadding(),
-                          child: Text(
-                            "Emergency Contacts",
-                            style: getDefaultFontStyle.copyWith(
-                              fontSize: 15,
-                            ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.star,
+                                size: 15,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                "Emergency Contacts",
+                                style: getDefaultFontStyle.copyWith(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -209,15 +232,26 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                   Get.offAllNamed(Routes.getLoginRoute);
                 },
                 child: Container(
-                  height: Get.height/15,
+                  height: Get.height / 15,
                   width: double.infinity,
                   alignment: Alignment.centerLeft,
                   padding: getGlobalPadding(),
-                  child: Text(
-                    "Sign out",
-                    style: getDefaultFontStyle.copyWith(
-                      fontSize: 15,
-                    ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.arrowRightFromBracket,
+                        size: 15,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Sign out",
+                        style: getDefaultFontStyle.copyWith(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -260,8 +294,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: Get.width/5,
-                                  width: Get.width/5,
+                                  height: Get.width / 5,
+                                  width: Get.width / 5,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -297,8 +331,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: Get.width/5,
-                                  width: Get.width/5,
+                                  height: Get.width / 5,
+                                  width: Get.width / 5,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -330,8 +364,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Column(
                             children: [
                               Container(
-                                height: Get.width/5,
-                                width: Get.width/5,
+                                height: Get.width / 5,
+                                width: Get.width / 5,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
@@ -361,8 +395,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Column(
                             children: [
                               Container(
-                                height: Get.width/5,
-                                width: Get.width/5,
+                                height: Get.width / 5,
+                                width: Get.width / 5,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
@@ -541,7 +575,11 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                       padding: getGlobalPadding(),
                       child: InkWell(
                         onTap: () {
-                          Get.toNamed(Routes.getHomescreenRoute);
+                          Get.to(
+                            ActiveTrips(
+                              toIub: true,
+                            ),
+                          );
                         },
                         child: Container(
                           height: 50,
@@ -568,7 +606,13 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     Padding(
                       padding: getGlobalPadding(),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(
+                            ActiveTrips(
+                              toIub: false,
+                            ),
+                          );
+                        },
                         child: Container(
                           height: 50,
                           width: Get.width,

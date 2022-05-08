@@ -14,7 +14,7 @@ class Routes {
   static get getOnboardingRoute => '/onboarding';
   static get getLoginRoute => '/login';
   static get getIntroductionRoute => '/introductionScreen';
-  static get getHomescreenRoute => '/homescreen';
+  static get getActiveTrips => '/activeTrips';
   static get getProfileRoute => '/profile';
   static get getCreateATripRoute => '/createATrip';
   static get getTripDetails => '/tripDetails';
@@ -35,8 +35,10 @@ class Routes {
       transition: Transition.rightToLeft,
     ),
     GetPage(
-      name: getHomescreenRoute,
-      page: () => ActiveTrips(),
+      name: getActiveTrips,
+      page: () => ActiveTrips(
+        toIub: false,
+      ),
       transition: Transition.rightToLeft,
     ),
     GetPage(

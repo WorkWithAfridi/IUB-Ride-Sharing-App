@@ -7,9 +7,11 @@ import 'package:get/get.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 import '../constants/appTheme.dart';
+import '../model/trip.dart';
 
 class GetTripCard extends StatefulWidget {
-  const GetTripCard({Key? key}) : super(key: key);
+  Trip currentTrip;
+  GetTripCard({Key? key, required this.currentTrip}) : super(key: key);
 
   @override
   State<GetTripCard> createState() => _GetTripCardState();
@@ -81,12 +83,12 @@ class _GetTripCardState extends State<GetTripCard> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Khondakar Afridi",
+                                widget.currentTrip.username.toString(),
                                 style: getDefaultFontStyle.copyWith(
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "1820461",
+                                widget.currentTrip.uid.toString(),
                                 style: getDefaultFontStyle,
                               ),
                             ],
@@ -176,7 +178,7 @@ class _GetTripCardState extends State<GetTripCard> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Independent University, Bangladesh",
+                                      widget.currentTrip.from.toString(),
                                       style: getDefaultFontStyle,
                                     )
                                   ],
@@ -218,7 +220,7 @@ class _GetTripCardState extends State<GetTripCard> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Dhanmondi",
+                                      widget.currentTrip.to.toString(),
                                       style: getDefaultFontStyle,
                                     )
                                   ],
@@ -244,7 +246,7 @@ class _GetTripCardState extends State<GetTripCard> {
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "250 Tk",
+                          widget.currentTrip.fare.toString(),
                           style: getDefaultFontStyle,
                         ),
                       ],
@@ -260,7 +262,7 @@ class _GetTripCardState extends State<GetTripCard> {
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "3",
+                          widget.currentTrip.seatsAvailable.toString(),
                           style: getDefaultFontStyle,
                         ),
                       ],
@@ -276,7 +278,7 @@ class _GetTripCardState extends State<GetTripCard> {
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "Car",
+                          widget.currentTrip.transportMedium.toString(),
                           style: getDefaultFontStyle,
                         ),
                       ],
