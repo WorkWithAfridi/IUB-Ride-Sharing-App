@@ -1,5 +1,5 @@
-import 'package:bnans_iub/constants/app_theme.dart';
-import 'package:bnans_iub/routes/routes.dart';
+import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/routes/appRoutes.dart';
 import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

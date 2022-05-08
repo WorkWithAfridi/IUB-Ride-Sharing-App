@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../constants/app_theme.dart';
+import '../constants/appTheme.dart';
 
 showCustomSnackbar(String title, String message) {
   Get.snackbar(
@@ -10,7 +10,7 @@ showCustomSnackbar(String title, String message) {
     borderRadius: 5,
     borderWidth: 1,
     borderColor: customBlack,
-    snackPosition: SnackPosition.BOTTOM,
+    snackPosition: SnackPosition.TOP,
     margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
     duration: Duration(seconds: 2),
     titleText: Text(

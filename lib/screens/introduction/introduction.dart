@@ -1,5 +1,5 @@
-import 'package:bnans_iub/constants/app_theme.dart';
-import 'package:bnans_iub/functions/url_launcher_functions.dart';
+import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/functions/launchUrl.dart';
 import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:bnans_iub/widgets/divider.dart';
 import 'package:bnans_iub/widgets/google_maps.dart';
@@ -8,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../routes/routes.dart';
+import '../../routes/appRoutes.dart';
 import '../../widgets/getLoadingAnimation.dart';
 
 class IntroductionScreen extends StatefulWidget {

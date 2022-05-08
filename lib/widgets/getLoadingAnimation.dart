@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../constants/app_theme.dart';
+import '../constants/appTheme.dart';
 
 class GetLoadingAnimation extends StatelessWidget {
   const GetLoadingAnimation({Key? key}) : super(key: key);

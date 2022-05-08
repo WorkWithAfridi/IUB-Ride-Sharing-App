@@ -1,12 +1,12 @@
-import 'package:bnans_iub/functions/random_color_picker.dart';
-import 'package:bnans_iub/routes/routes.dart';
+import 'package:bnans_iub/functions/pickRandomColor.dart';
+import 'package:bnans_iub/routes/appRoutes.dart';
 import 'package:bnans_iub/widgets/divider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import '../constants/app_theme.dart';
+import '../constants/appTheme.dart';
 
 class GetTripCard extends StatefulWidget {
   const GetTripCard({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-package com.workwithafridi.bnans_iub
+package com.workwithafridi.bananasiub
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,5 +1,5 @@
-import 'package:bnans_iub/constants/app_theme.dart';
-import 'package:bnans_iub/routes/routes.dart';
+import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/routes/appRoutes.dart';
 import 'package:bnans_iub/widgets/getLoadingAnimation.dart';
 import 'package:bnans_iub/widgets/getTripCard.dart';
 import 'package:bnans_iub/widgets/google_maps.dart';
@@ -8,7 +8,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../functions/custom_snackbar.dart';
+import '../../functions/showCustomSnackbar.dart';
 import '../../widgets/backButton.dart';
 
 class ActiveTrips extends StatefulWidget {

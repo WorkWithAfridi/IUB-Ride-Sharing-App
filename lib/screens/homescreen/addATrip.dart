@@ -1,11 +1,13 @@
-import 'package:bnans_iub/constants/app_theme.dart';
+import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/functions/firebaseMethods.dart';
+import 'package:bnans_iub/functions/showCustomSnackbar.dart';
 import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:bnans_iub/widgets/customTextField.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-import '../../functions/random_color_picker.dart';
+import '../../functions/pickRandomColor.dart';
 import '../../widgets/divider.dart';
 
 class CreateATrip extends StatefulWidget {
@@ -22,6 +24,8 @@ class _CreateATripState extends State<CreateATrip> {
   TextEditingController FareTEC = TextEditingController();
   TextEditingController LisencePlateTEC = TextEditingController();
   int numberOfSeatsAvailable = 0;
+  String transportMedium = '';
+  String scheduledTime = DateTime.now().toString();
 
   @override
   Widget build(BuildContext context) {
@@ -313,242 +317,296 @@ class _CreateATripState extends State<CreateATrip> {
                         SizedBox(
                           width: 20,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              height: Get.width/5,
-                              width: Get.width/5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: customBlack.withOpacity(.5)),
-                                borderRadius: BorderRadius.circular(5),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              transportMedium = 'Bike';
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: Get.width / 5,
+                                width: Get.width / 5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          'assets/images/maps/motorbike.png'),
+                                    ),
+                                    Container(
+                                      height: Get.height,
+                                      width: Get.width,
+                                      color: transportMedium == 'Bike'
+                                          ? Colors.transparent
+                                          : Colors.grey.withOpacity(.8),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.asset(
-                                        'assets/images/maps/motorbike.png'),
-                                  ),
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    color: Colors.grey.withOpacity(.8),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Bike',
-                              style: getDefaultFontStyle.copyWith(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
+                              Text(
+                                'Bike',
+                                style: getDefaultFontStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              height: Get.width/5,
-                              width: Get.width/5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: customBlack.withOpacity(.5)),
-                                borderRadius: BorderRadius.circular(5),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              transportMedium = 'Car';
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: Get.width / 5,
+                                width: Get.width / 5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          'assets/images/maps/privateCar.png'),
+                                    ),
+                                    Container(
+                                      height: Get.height,
+                                      width: Get.width,
+                                      color: transportMedium == 'Car'
+                                          ? Colors.transparent
+                                          : Colors.grey.withOpacity(.8),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.asset(
-                                        'assets/images/maps/privateCar.png'),
-                                  ),
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    color: Colors.grey.withOpacity(.8),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Car',
-                              style: getDefaultFontStyle.copyWith(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
+                              Text(
+                                'Car',
+                                style: getDefaultFontStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              height: Get.width/5,
-                              width: Get.width/5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: customBlack.withOpacity(.5)),
-                                borderRadius: BorderRadius.circular(5),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              transportMedium = 'Uber';
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: Get.width / 5,
+                                width: Get.width / 5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          'assets/images/maps/privateCar.png'),
+                                    ),
+                                    Container(
+                                      height: Get.height,
+                                      width: Get.width,
+                                      color: transportMedium == 'Uber'
+                                          ? Colors.transparent
+                                          : Colors.grey.withOpacity(.8),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.asset(
-                                        'assets/images/maps/privateCar.png'),
-                                  ),
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    color: Colors.grey.withOpacity(.8),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Uber',
-                              style: getDefaultFontStyle.copyWith(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
+                              Text(
+                                'Uber',
+                                style: getDefaultFontStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              height: Get.width/5,
-                              width: Get.width/5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: customBlack.withOpacity(.5)),
-                                borderRadius: BorderRadius.circular(5),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              transportMedium = 'Rickshaw';
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: Get.width / 5,
+                                width: Get.width / 5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          'assets/images/maps/rickshaw.png'),
+                                    ),
+                                    Container(
+                                      height: Get.height,
+                                      width: Get.width,
+                                      color: transportMedium == 'Rickshaw'
+                                          ? Colors.transparent
+                                          : Colors.grey.withOpacity(.8),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.asset(
-                                        'assets/images/maps/rickshaw.png'),
-                                  ),
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    color: Colors.grey.withOpacity(.8),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Rickshaw',
-                              style: getDefaultFontStyle.copyWith(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
+                              Text(
+                                'Rickshaw',
+                                style: getDefaultFontStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              height: Get.width/5,
-                              width: Get.width/5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: customBlack.withOpacity(.5)),
-                                borderRadius: BorderRadius.circular(5),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              transportMedium = 'Bus';
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: Get.width / 5,
+                                width: Get.width / 5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          'assets/images/maps/privateCar.png'),
+                                    ),
+                                    Container(
+                                      height: Get.height,
+                                      width: Get.width,
+                                      color: transportMedium == 'Bus'
+                                          ? Colors.transparent
+                                          : Colors.grey.withOpacity(.8),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.asset(
-                                        'assets/images/maps/privateCar.png'),
-                                  ),
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    color: Colors.grey.withOpacity(.8),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'Bus',
-                              style: getDefaultFontStyle.copyWith(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
+                              Text(
+                                'Bus',
+                                style: getDefaultFontStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 10,
                         ),
-                        Column(
-                          children: [
-                            Container(
-                              height: Get.width/5,
-                              width: Get.width/5,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    color: customBlack.withOpacity(.5)),
-                                borderRadius: BorderRadius.circular(5),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              transportMedium = 'CNG';
+                            });
+                          },
+                          child: Column(
+                            children: [
+                              Container(
+                                height: Get.width / 5,
+                                width: Get.width / 5,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: customBlack.withOpacity(.5)),
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Image.asset(
+                                          'assets/images/maps/privateCar.png'),
+                                    ),
+                                    Container(
+                                      height: Get.height,
+                                      width: Get.width,
+                                      color: transportMedium == 'CNG'
+                                          ? Colors.transparent
+                                          : Colors.grey.withOpacity(.8),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Image.asset(
-                                        'assets/images/maps/privateCar.png'),
-                                  ),
-                                  Container(
-                                    height: Get.height,
-                                    width: Get.width,
-                                    color: Colors.grey.withOpacity(.8),
-                                  ),
-                                ],
+                              SizedBox(
+                                height: 5,
                               ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              'CNG',
-                              style: getDefaultFontStyle.copyWith(
-                                color: Colors.grey,
-                              ),
-                            )
-                          ],
+                              Text(
+                                'CNG',
+                                style: getDefaultFontStyle.copyWith(
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           width: 20,
@@ -782,8 +840,7 @@ class _CreateATripState extends State<CreateATrip> {
                     ),
                     GetCustomTextField(
                       textEditingController: LisencePlateTEC,
-                      hintText:
-                          "Enter your vehicles license/ number number",
+                      hintText: "Enter your vehicles license/ number number",
                       textInputType: TextInputType.number,
                       maxLines: 1,
                     ),
@@ -796,7 +853,29 @@ class _CreateATripState extends State<CreateATrip> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () async {
+                    bool isSuccess = await FirebaseFunctions().registerTrip(
+                        username: 'RandomUser',
+                        uid: '1121',
+                        toIub: false,
+                        from: FromTEC.text,
+                        to: ToTEC.text,
+                        description: DescriptionTEC.text,
+                        transportMedium: transportMedium,
+                        seatsAvailable: numberOfSeatsAvailable,
+                        scheduledTime: scheduledTime,
+                        fare: double.parse(FareTEC.text),
+                        licenseNumber: LisencePlateTEC.text);
+                    print(isSuccess);
+                    if (isSuccess) {
+                      Get.back();
+                      await showCustomSnackbar('Trip activated',
+                          'Hi, XYZ. Your trip has been registered and is now active.');
+                    } else {
+                      showCustomSnackbar(
+                          'Error', 'Hi. An error occurred. Please try again!');
+                    }
+                  },
                   child: Container(
                     height: 50,
                     width: Get.width,
@@ -807,7 +886,7 @@ class _CreateATripState extends State<CreateATrip> {
                     ),
                     child: Center(
                       child: Text(
-                        'Confirm',
+                        'Register',
                         style: getDefaultFontStyle.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

@@ -1,5 +1,5 @@
-import 'package:bnans_iub/constants/app_theme.dart';
-import 'package:bnans_iub/routes/routes.dart';
+import 'package:bnans_iub/constants/appTheme.dart';
+import 'package:bnans_iub/routes/appRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
