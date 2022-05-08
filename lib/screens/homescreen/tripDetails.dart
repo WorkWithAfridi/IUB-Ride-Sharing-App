@@ -16,6 +16,7 @@ class TripDetails extends StatefulWidget {
 }
 
 class _TripDetailsState extends State<TripDetails> {
+  bool rideConfirmed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +59,7 @@ class _TripDetailsState extends State<TripDetails> {
                         width: 45,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(45),
-                          color: primaryColor,
+                          color: Colors.black,
                         ),
                       ),
                       Container(
@@ -66,12 +67,12 @@ class _TripDetailsState extends State<TripDetails> {
                         width: 43,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(43),
-                          color: primaryColor,
+                          color: Colors.black,
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(43),
                           child: Image.network(
-                            "https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                            "https://images.unsplash.com/photo-1560595643-90bb555b2eaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -115,18 +116,22 @@ class _TripDetailsState extends State<TripDetails> {
                 children: [
                   Expanded(
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          rideConfirmed = !rideConfirmed;
+                        });
+                      },
                       child: Container(
                         height: 50,
                         decoration: BoxDecoration(
-                          color: primaryColor,
+                          color: rideConfirmed? customBlack : primaryColor,
                           border:
                               Border.all(color: customBlack.withOpacity(.3)),
                           borderRadius: BorderRadius.circular(5),
                         ),
                         child: Center(
                           child: Text(
-                            'Confirm ride',
+                            rideConfirmed? "Cancel seat" : 'Confirm ride',
                             style: getDefaultFontStyle.copyWith(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -137,11 +142,11 @@ class _TripDetailsState extends State<TripDetails> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Row(
+                  rideConfirmed? Row(
                     children: [
+                      SizedBox(
+                        width: 10,
+                      ),
                       Container(
                         height: 50,
                         width: 50,
@@ -183,7 +188,7 @@ class _TripDetailsState extends State<TripDetails> {
                         ),
                       ),
                     ],
-                  ),
+                  ) : SizedBox.shrink(),
                 ],
               ),
             ),
@@ -392,11 +397,10 @@ class _TripDetailsState extends State<TripDetails> {
                     height: 10,
                   ),
                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: Get.width/5,
-                        width: Get.width/5,
+                        height: Get.width / 5,
+                        width: Get.width / 5,
                         decoration: BoxDecoration(
                           border:
                               Border.all(color: customBlack.withOpacity(.5)),
@@ -405,19 +409,15 @@ class _TripDetailsState extends State<TripDetails> {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            Container(
-                              height: Get.height,
-                              width: Get.width,
-                              child: Image.asset(
-                                'assets/images/maps/map (1).jpg',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
                             Padding(
                               padding: EdgeInsets.all(10),
                               child: Image.asset(
-                                  'assets/images/maps/motorbike.png'),
+                                  'assets/images/maps/privateCar.png'),
                             ),
+                            Container(
+                                height: Get.height,
+                                width: Get.width,
+                                color: Colors.transparent),
                           ],
                         ),
                       ),
@@ -425,9 +425,11 @@ class _TripDetailsState extends State<TripDetails> {
                         height: 5,
                       ),
                       Text(
-                        'Bike',
-                        style: getDefaultFontStyle,
-                      ),
+                        'Car',
+                        style: getDefaultFontStyle.copyWith(
+                          color: Colors.grey,
+                        ),
+                      )
                     ],
                   ),
                 ],
@@ -595,7 +597,7 @@ class _TripDetailsState extends State<TripDetails> {
                     height: 5,
                   ),
                   Text(
-                    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.',
+                    'Taking Bijoy Shorni- banani route',
                     style: getDefaultFontStyle,
                   ),
                 ],

@@ -29,7 +29,7 @@ class _GetTripCardState extends State<GetTripCard> {
         child: Container(
           // height: 100,
           decoration: BoxDecoration(
-            // color: primaryColor.withOpacity(.2),
+            color: customBlack.withOpacity(.025),
             border: Border.all(color: customBlack.withOpacity(.3)),
             borderRadius: BorderRadius.circular(5),
           ),
@@ -55,7 +55,7 @@ class _GetTripCardState extends State<GetTripCard> {
                                 width: 35,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(35),
-                                  color: primaryColor,
+                                  color: Colors.black,
                                 ),
                               ),
                               Container(
@@ -63,12 +63,12 @@ class _GetTripCardState extends State<GetTripCard> {
                                 width: 33,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(33),
-                                  color: primaryColor,
+                                  color: Colors.black,
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(33),
                                   child: Image.network(
-                                    "https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                                    "https://images.unsplash.com/photo-1560595643-90bb555b2eaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -76,7 +76,7 @@ class _GetTripCardState extends State<GetTripCard> {
                             ],
                           ),
                           SizedBox(
-                            width: 5,
+                            width: 8,
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -100,8 +100,8 @@ class _GetTripCardState extends State<GetTripCard> {
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         child: Container(
-                          height: 35,
-                          width: 35,
+                          height: 25,
+                          width: 15,
                           alignment: Alignment.center,
                           child: Icon(
                             FontAwesomeIcons.ellipsisVertical,
@@ -293,144 +293,3 @@ class _GetTripCardState extends State<GetTripCard> {
     );
   }
 }
-//
-// Container(
-// decoration: BoxDecoration(
-// color: Colors.white,
-// border: Border.all(color: customBlack.withOpacity(.5)),
-// borderRadius: BorderRadius.circular(5),
-// ),
-// padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-// height: 120,
-// width: Get.width,
-// child: Row(
-// children: [
-// Flexible(
-// flex: 1,
-// child: Container(
-// // decoration: BoxDecoration(
-// //   border: Border.all(color: customBlack.withOpacity(.5)),
-// //   borderRadius: BorderRadius.circular(5),
-// // ),
-// child: Stack(
-// alignment: Alignment.center,
-// children: [
-// // Container(
-// //   height: Get.height,
-// //   width: Get.width,
-// //   child: Image.asset(
-// //     'assets/images/maps/map (2).jpg',
-// //     fit: BoxFit.cover,
-// //   ),
-// // ),
-// Padding(
-// padding: EdgeInsets.all(10),
-// child: Image.asset(getRandomTransportVehicle()),
-// ),
-// ],
-// ),
-// ),
-// ),
-// GetVerticalCustomDivider(),
-// Flexible(
-// flex: 5,
-// child: Container(
-// width: double.infinity,
-// child: Column(
-// mainAxisAlignment: MainAxisAlignment.spaceBetween,
-// crossAxisAlignment: CrossAxisAlignment.start,
-// children: [
-// Column(
-// mainAxisAlignment: MainAxisAlignment.start,
-// crossAxisAlignment: CrossAxisAlignment.start,
-// children: [
-// Text(
-// "Khondakar Afridi ",
-// style: getDefaultFontStyle.copyWith(
-// fontWeight: FontWeight.w600),
-// overflow: TextOverflow.ellipsis,
-// ),
-// Text(
-// "1820461",
-// style: getDefaultFontStyle,
-// ),
-// ],
-// ),
-// Column(
-// mainAxisAlignment: MainAxisAlignment.end,
-// crossAxisAlignment: CrossAxisAlignment.start,
-// children: [
-// Row(
-// children: [
-// Text(
-// 'From: ',
-// style: getDefaultFontStyle,
-// ),
-// Expanded(
-// child: Text(
-// ' Baily road, Shantinagar.',
-// maxLines: 1,
-// overflow: TextOverflow.ellipsis,
-// style: getDefaultFontStyle.copyWith(
-// color: customBlack.withOpacity(.8)),
-// ),
-// ),
-// ],
-// ),
-// Row(
-// children: [
-// Text(
-// 'To: ',
-// style: getDefaultFontStyle,
-// ),
-// Expanded(
-// child: Text(
-// 'Independent University, Bangladesh.',
-// maxLines: 1,
-// style: getDefaultFontStyle.copyWith(
-// color: customBlack.withOpacity(.8)),
-// overflow: TextOverflow.ellipsis,
-// ),
-// ),
-// ],
-// ),
-// // Row(
-// //   children: [
-// //     Text(
-// //       'Via: ',
-// //       style: getDefaultFontStyle,
-// //     ),
-// //     Expanded(
-// //       child: Text(
-// //         'Rampura, Hatir jheel.',
-// //         maxLines: 1,
-// //         style: getDefaultFontStyle.copyWith(
-// //           color: customBlack.withOpacity(.8),
-// //           overflow: TextOverflow.ellipsis,
-// //         ),
-// //       ),
-// //     ),
-// //   ],
-// // ),
-// Row(
-// children: [
-// Text(
-// 'Posted: ',
-// style: getDefaultFontStyle,
-// ),
-// Text(
-// '${timeago.format(DateTime.now())}',
-// style: getDefaultFontStyle.copyWith(
-// color: customBlack.withOpacity(.8)),
-// ),
-// ],
-// )
-// ],
-// )
-// ],
-// ),
-// ),
-// )
-// ],
-// ),
-// ),

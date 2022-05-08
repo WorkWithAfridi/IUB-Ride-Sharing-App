@@ -6,14 +6,14 @@ class AppTheme {
     return ThemeData.light().copyWith(
         primaryColor: customWhite,
         backgroundColor: customWhite,
-        appBarTheme: AppBarTheme(backgroundColor: customWhite),
+        appBarTheme: AppBarTheme(backgroundColor: Colors.white),
         scaffoldBackgroundColor: customWhite);
   }
 }
 
 Color primaryColor = Color(0xffF03B46);
-Color customBlack = Color(0xff242526);
-Color customWhite = Color(0xffF9F9FB);
+Color customBlack = Color(0xff22282C);
+Color customWhite = Color(0xffFFFFFF);
 Color customRed = Color(0xffE4021B);
 
 TextStyle getDefaultFontStyle = TextStyle(

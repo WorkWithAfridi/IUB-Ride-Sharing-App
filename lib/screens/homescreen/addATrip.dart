@@ -5,6 +5,7 @@ import 'package:bnans_iub/functions/firebaseMethods.dart';
 import 'package:bnans_iub/functions/showCustomSnackbar.dart';
 import 'package:bnans_iub/widgets/backButton.dart';
 import 'package:bnans_iub/widgets/customTextField.dart';
+import 'package:bnans_iub/widgets/getLoadingAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,7 @@ class _CreateATripState extends State<CreateATrip> {
   int numberOfSeatsAvailable = 0;
   String transportMedium = '';
   String scheduledTime = DateTime.now().toString();
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -359,7 +361,9 @@ class _CreateATripState extends State<CreateATrip> {
                               Text(
                                 'Bike',
                                 style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
+                                  color: transportMedium == 'Bike'
+                                      ? Colors.black
+                                      : Colors.grey,
                                 ),
                               )
                             ],
@@ -408,7 +412,9 @@ class _CreateATripState extends State<CreateATrip> {
                               Text(
                                 'Car',
                                 style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
+                                  color: transportMedium == 'Car'
+                                      ? Colors.black
+                                      : Colors.grey,
                                 ),
                               )
                             ],
@@ -439,7 +445,9 @@ class _CreateATripState extends State<CreateATrip> {
                                     Padding(
                                       padding: EdgeInsets.all(10),
                                       child: Image.asset(
-                                          'assets/images/maps/privateCar.png'),
+                                        'assets/images/uber.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                     Container(
                                       height: Get.height,
@@ -457,7 +465,9 @@ class _CreateATripState extends State<CreateATrip> {
                               Text(
                                 'Uber',
                                 style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
+                                  color: transportMedium == 'Uber'
+                                      ? Colors.black
+                                      : Colors.grey,
                                 ),
                               )
                             ],
@@ -506,7 +516,9 @@ class _CreateATripState extends State<CreateATrip> {
                               Text(
                                 'Rickshaw',
                                 style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
+                                  color: transportMedium == 'Rickshaw'
+                                      ? Colors.black
+                                      : Colors.grey,
                                 ),
                               )
                             ],
@@ -555,7 +567,9 @@ class _CreateATripState extends State<CreateATrip> {
                               Text(
                                 'Bus',
                                 style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
+                                  color: transportMedium == 'Bus'
+                                      ? Colors.black
+                                      : Colors.grey,
                                 ),
                               )
                             ],
@@ -604,7 +618,9 @@ class _CreateATripState extends State<CreateATrip> {
                               Text(
                                 'CNG',
                                 style: getDefaultFontStyle.copyWith(
-                                  color: Colors.grey,
+                                  color: transportMedium == 'CNG'
+                                      ? Colors.black
+                                      : Colors.grey,
                                 ),
                               )
                             ],
@@ -663,9 +679,11 @@ class _CreateATripState extends State<CreateATrip> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    setState(() {
-                                      numberOfSeatsAvailable--;
-                                    });
+                                    if (numberOfSeatsAvailable > 0) {
+                                      setState(() {
+                                        numberOfSeatsAvailable--;
+                                      });
+                                    }
                                   },
                                   child: Container(
                                     height: 30,
@@ -843,7 +861,7 @@ class _CreateATripState extends State<CreateATrip> {
                     GetCustomTextField(
                       textEditingController: LisencePlateTEC,
                       hintText: "Enter your vehicles license/ number number",
-                      textInputType: TextInputType.number,
+                      textInputType: TextInputType.text,
                       maxLines: 1,
                     ),
                   ],
@@ -856,9 +874,13 @@ class _CreateATripState extends State<CreateATrip> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: InkWell(
                   onTap: () async {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    await Future.delayed(Duration(seconds: 2));
                     bool isSuccess = await FirebaseFunctions().registerTrip(
-                        username: "KhondakarAfirdi${Random().nextInt(1000).toString()}",
-                        uid: '1121',
+                        username: "Bijoy ${Random().nextInt(1000).toString()}",
+                        uid: '12345',
                         toIub: ToTEC.text.contains("IUB") ||
                                 ToTEC.text.contains("iub") ||
                                 ToTEC.text.contains("Iub") ||
@@ -876,11 +898,13 @@ class _CreateATripState extends State<CreateATrip> {
                         scheduledTime: scheduledTime,
                         fare: double.parse(FareTEC.text),
                         licenseNumber: LisencePlateTEC.text);
-                    print(isSuccess);
+                    setState(() {
+                      isLoading = false;
+                    });
                     if (isSuccess) {
                       Get.back();
                       await showCustomSnackbar('Trip activated',
-                          'Hi, XYZ. Your trip has been registered and is now active.');
+                          'Hi, Bijoy. Your trip has been registered and is now active.');
                     } else {
                       showCustomSnackbar(
                           'Error', 'Hi. An error occurred. Please try again!');
@@ -895,14 +919,16 @@ class _CreateATripState extends State<CreateATrip> {
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Center(
-                      child: Text(
-                        'Register',
-                        style: getDefaultFontStyle.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                        ),
-                      ),
+                      child: isLoading
+                          ? GetCustomCircularProgressIndicator()
+                          : Text(
+                              'Register',
+                              style: getDefaultFontStyle.copyWith(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
                     ),
                   ),
                 ),

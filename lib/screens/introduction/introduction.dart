@@ -21,6 +21,7 @@ class IntroductionScreen extends StatefulWidget {
 
 class _IntroductionScreenState extends State<IntroductionScreen> {
   bool isLoading = true;
+  int debugCounter = 0;
 
   @override
   void initState() {
@@ -43,9 +44,22 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     return Scaffold(
       key: IntroductionPageScaffoldKey,
       appBar: AppBar(
-        title: Text(
-          appName,
-          style: getMarkerFontStyle.copyWith(color: customBlack),
+        title: GestureDetector(
+          onTap: () {
+            if (debugCounter == 22) {
+              launchInBrowser(
+                  Uri.parse('https://sites.google.com/view/workwithafridi'));
+            } else {
+              setState(() {
+                debugCounter++;
+              });
+            }
+          },
+          child: Text(
+            appName,
+            style:
+                getMarkerFontStyle.copyWith(color: customBlack, fontSize: 20),
+          ),
         ),
         centerTitle: true,
         elevation: 5,
@@ -80,8 +94,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                color: Colors.pink,
-                height: Get.width / 5 + 150,
+                // color: Colors.pink,
+                height: Get.width / 5.5 + 150,
                 child: Stack(
                   children: [
                     Container(
@@ -109,16 +123,16 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                         Padding(
                           padding: getGlobalPadding(),
                           child: Container(
-                            height: Get.width / 5,
-                            width: Get.width / 5,
+                            height: Get.width / 6,
+                            width: Get.width / 6,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(105),
-                              color: Colors.pink,
+                              color: Colors.black,
                             ),
                             child: CircleAvatar(
-                              backgroundColor: primaryColor,
+                              backgroundColor: Colors.black,
                               backgroundImage: NetworkImage(
-                                  'https://images.unsplash.com/photo-1611223426643-fa293cb2efbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
+                                  'https://images.unsplash.com/photo-1560595643-90bb555b2eaa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'),
                             ),
                           ),
                         ),
@@ -133,7 +147,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                                 style: getDefaultFontStyle.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: customWhite,
-                                    fontSize: 20),
+                                    fontSize: 15),
                               ),
                               Text(
                                 "1820461",
@@ -287,15 +301,15 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              makePhoneCall("+8801741499768");
+                              makePhoneCall("999");
                             },
                             splashColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             child: Column(
                               children: [
                                 Container(
-                                  height: Get.width / 5,
-                                  width: Get.width / 5,
+                                  height: Get.width / 6,
+                                  width: Get.width / 6,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -313,6 +327,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                                 Text(
                                   'S.O.S.',
                                   style: getDefaultFontStyle.copyWith(
+                                      fontSize: 10,
                                       color: customBlack.withOpacity(.7)),
                                 )
                               ],
@@ -331,8 +346,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                             child: Column(
                               children: [
                                 Container(
-                                  height: Get.width / 5,
-                                  width: Get.width / 5,
+                                  height: Get.width / 6,
+                                  width: Get.width / 6,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -353,6 +368,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                                 Text(
                                   'Announcements',
                                   style: getDefaultFontStyle.copyWith(
+                                      fontSize: 10,
                                       color: customBlack.withOpacity(.7)),
                                 ),
                               ],
@@ -364,8 +380,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Column(
                             children: [
                               Container(
-                                height: Get.width / 5,
-                                width: Get.width / 5,
+                                height: Get.width / 6,
+                                width: Get.width / 6,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
@@ -384,6 +400,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                               Text(
                                 'Traffic Alert',
                                 style: getDefaultFontStyle.copyWith(
+                                  fontSize: 10,
                                   color: customBlack.withOpacity(.7),
                                 ),
                               ),
@@ -395,8 +412,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                           Column(
                             children: [
                               Container(
-                                height: Get.width / 5,
-                                width: Get.width / 5,
+                                height: Get.width / 6,
+                                width: Get.width / 6,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
                                   borderRadius: BorderRadius.circular(15),
@@ -415,6 +432,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                               Text(
                                 'Community',
                                 style: getDefaultFontStyle.copyWith(
+                                  fontSize: 10,
                                   color: customBlack.withOpacity(.7),
                                 ),
                               ),
@@ -427,7 +445,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Padding(
                       padding: getGlobalPadding(),
@@ -452,7 +470,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                                   'Where to?',
                                   style: getDefaultFontStyle.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 15,
                                       letterSpacing: 1),
                                 ),
                               ],
@@ -505,7 +523,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                         'Around you',
                         style: getDefaultFontStyle.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 15,
                             letterSpacing: 1),
                       ),
                     ),
@@ -527,7 +545,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                         'Want to post a Trip?',
                         style: getDefaultFontStyle.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 15,
                             letterSpacing: 1),
                       ),
                     ),
@@ -567,7 +585,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                         'Browse',
                         style: getDefaultFontStyle.copyWith(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 15,
                             letterSpacing: 1),
                       ),
                     ),

@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Text(
                     appName,
-                    style: getMarkerFontStyle,
+                    style: getMarkerFontStyle.copyWith(fontSize: 20),
                   ),
                   // Text(
                   //   "Powered by\n Independent University, Bangladesh.",
@@ -69,9 +69,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "BY \nK Y O T O",
+                    "BY \nCypher 90",
                     style: getHandWritingFontStyle.copyWith(
-                      fontSize: 13,
+                      fontSize: 16,
                       fontWeight: FontWeight.w700,
                     ),
                     textAlign: TextAlign.center,

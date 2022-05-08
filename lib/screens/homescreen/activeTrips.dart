@@ -12,6 +12,7 @@ import 'package:lottie/lottie.dart';
 
 import '../../functions/showCustomSnackbar.dart';
 import '../../widgets/backButton.dart';
+import '../../widgets/divider.dart';
 
 class ActiveTrips extends StatefulWidget {
   bool toIub;
@@ -71,24 +72,24 @@ class _ActiveTripsState extends State<ActiveTrips> {
                         child: CustomGoogleMapsWidget(),
                       ),
                     ),
-                    SizedBox(
-                      height: 5,
-                    ),
+                    GetHorizontalCustomDivider(),
                     Padding(
-                      padding: getGlobalPadding(),
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
                             'Active trips on route ${widget.toIub ? "to" : "from"} IUB',
                             style: getDefaultFontStyle.copyWith(
-                                fontWeight: FontWeight.w700, fontSize: 14),
+                              fontWeight: FontWeight.w700,
+                              fontSize: 15,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: 2,
+                      height: 10,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),
@@ -103,7 +104,7 @@ class _ActiveTripsState extends State<ActiveTrips> {
                                 snapshot) {
                           if (snapshot.connectionState ==
                               ConnectionState.waiting) {
-                            return GetLoadingAnimation();
+                            return GetCustomCircularProgressIndicator();
                           }
                           return snapshot.data!.docs.length == 0
                               ? Row(
@@ -131,7 +132,10 @@ class _ActiveTripsState extends State<ActiveTrips> {
                                 );
                         },
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
                   ],
                 ),
               ),

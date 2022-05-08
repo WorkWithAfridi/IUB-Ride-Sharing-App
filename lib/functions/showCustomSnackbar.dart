@@ -12,7 +12,7 @@ showCustomSnackbar(String title, String message) {
     borderColor: customBlack,
     snackPosition: SnackPosition.TOP,
     margin: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-    duration: Duration(seconds: 2),
+    duration: Duration(seconds: 4),
     titleText: Text(
       title,
       style: getMarkerFontStyle.copyWith(

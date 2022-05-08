@@ -158,8 +158,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 await Future.delayed(Duration(seconds: 2));
                                 Get.offNamed(Routes.getIntroductionRoute);
                                 showCustomSnackbar(
-                                  "Hi, Kyoto",
-                                  "Welcome aboard on BNANS. \nHave a save journey! :)",
+                                  "Hi, Bijoy",
+                                  "Welcome aboard minion. \nHave a save journey! :)",
                                 );
                                 setState(() {
                                   isLoading = false;
