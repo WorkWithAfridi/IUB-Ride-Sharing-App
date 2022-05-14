@@ -94,8 +94,8 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                // color: Colors.pink,
-                height: Get.width / 5.5 + 150,
+                color: Colors.pink,
+                height: Get.width /3.5 + 150,
                 child: Stack(
                   children: [
                     Container(
