@@ -14,6 +14,36 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController pageController = PageController();
   int pageIndex = 0;
+
+  late Image onBoardingImg1;
+  late Image onBoardingImg2;
+  late Image onBoardingImg3;
+
+  @override
+  void initState() {
+    super.initState();
+    onBoardingImg1 = Image.asset(
+      'assets/images/maps/map (6).jpg',
+      fit: BoxFit.cover,
+    );
+    onBoardingImg2 = Image.asset(
+      'assets/images/maps/map (3).jpg',
+      fit: BoxFit.cover,
+    );
+    onBoardingImg3 = Image.asset(
+      'assets/images/maps/map (4).jpg',
+      fit: BoxFit.cover,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(onBoardingImg1.image, context);
+    precacheImage(onBoardingImg2.image, context);
+    precacheImage(onBoardingImg3.image, context);
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,26 +63,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       Container(
                         height: double.infinity,
                         width: Get.width,
-                        child: Image.asset(
-                          'assets/images/maps/map (6).jpg',
-                          fit: BoxFit.cover,
-                        ),
+                        child: onBoardingImg1,
                       ),
                       Container(
                         height: double.infinity,
                         width: Get.width,
-                        child: Image.asset(
-                          'assets/images/maps/map (3).jpg',
-                          fit: BoxFit.cover,
-                        ),
+                        child: onBoardingImg2,
                       ),
                       Container(
                         height: double.infinity,
                         width: Get.width,
-                        child: Image.asset(
-                          'assets/images/maps/map (4).jpg',
-                          fit: BoxFit.cover,
-                        ),
+                        child: onBoardingImg3,
                       ),
                     ],
                   ),

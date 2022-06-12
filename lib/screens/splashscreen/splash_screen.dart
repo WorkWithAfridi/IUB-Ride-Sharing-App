@@ -87,6 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   triggerSplashScreenEvent() async {
     var isFirstBoot = await box.read("isFirstBoot");
+    isFirstBoot = null;
     Future.delayed(Duration(seconds: 4)).then((_) {
       if (isFirstBoot == null) {
         box.write("isFirstBoot", false);
